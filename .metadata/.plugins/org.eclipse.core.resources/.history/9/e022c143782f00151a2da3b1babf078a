@@ -1,0 +1,5 @@
+package mvcdemo.dao.impl;
+
+public class LoginDAOImpl {
+
+}

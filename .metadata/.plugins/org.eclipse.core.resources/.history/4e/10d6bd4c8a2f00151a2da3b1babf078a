@@ -1,0 +1,10 @@
+package mvcdemo.handlers;
+
+import java.util.List;
+import mvcdemo.bean.Book;
+
+public class BookListHandler {
+
+	private List<Book> list;
+	
+}

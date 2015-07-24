@@ -1,0 +1,10 @@
+package trainres.handlers;
+
+import trainres.services.CheckAvailService;
+import trainres.services.impl.CheckAvailServiceImpl;
+
+public class CheckAvailHandler {
+
+	CheckAvailService ps=new CheckAvailServiceImpl();
+	ps.update(pb);
+}

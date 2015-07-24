@@ -1,0 +1,5 @@
+package userLoginMVC.beans;
+
+public class User {
+
+}

@@ -1,0 +1,9 @@
+package trainres.beans;
+
+public class JourneyBean {
+
+	private int p_id;
+	private int t_id;
+	private String t_class;
+	private int available;
+}

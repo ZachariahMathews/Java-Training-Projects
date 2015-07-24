@@ -1,0 +1,39 @@
+package trainres.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import trainres.db.SQLConnUtil;
+import trainres.beans.JourneyBean;
+import trainres.beans.PassengerBean;
+import trainres.dao.CheckAvailDAO;
+
+public class CheckAvailDAOImpl implements CheckAvailDAO {
+
+	@Override
+	public void update(PassengerBean pb,JourneyBean jb) {
+		
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+		String sql="insert into T_PASSENGER_0998 values(?,?)";
+		System.out.println("****");
+		try {
+			
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setString(1, ""+pb.getP_id());
+			ps.setString(2, pb.getName());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public boolean check(PassengerBean pb, JourneyBean jb) {
+		
+		
+		return false;
+	}
+}

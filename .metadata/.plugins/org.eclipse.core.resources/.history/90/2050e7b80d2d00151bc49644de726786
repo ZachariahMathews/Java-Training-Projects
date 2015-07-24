@@ -1,0 +1,13 @@
+package searchapp.util;
+
+import java.io.Writer;
+
+public class SearchForm {
+
+	public static String getSearchForm(){
+		
+		StringBuffer sb=new StringBuffer();
+		
+		return sb.toString();
+	}
+}

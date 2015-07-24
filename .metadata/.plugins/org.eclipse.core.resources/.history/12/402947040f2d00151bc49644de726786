@@ -1,0 +1,46 @@
+package searchapp.util;
+
+import java.io.Writer;
+
+public class SearchForm {
+
+	public static String getSearchForm(){
+		
+		StringBuffer sb=new StringBuffer();
+		sb.append("<html>");
+		sb.append("<head>");
+		sb.append("<title>Login</title>");
+		sb.append("</head>");
+		sb.append("<body>");
+		sb.append("<h1>Search and display</h1>");
+		sb.append("<form action=\"SearchServlet\">");
+		sb.append("<table>");
+		sb.append("<tr>");
+		sb.append("<td>Search by Name</td>");
+		sb.append("<td>:&nbsp;<input type=\"radio\" checked=\"checked\" name=\"searchName\"></td>");
+		sb.append("</tr>");
+		sb.append("<tr>");
+		sb.append("<td>Search by Dept</td>");
+		sb.append("<td>:&nbsp;<input type=\"radio\" name=\"searchDept\"></td>");
+		sb.append("</tr>");
+		sb.append("<tr>");
+		sb.append("<td>Search by <div id=\"#searchBy\"></div></td>");
+		sb.append("<td>:&nbsp;<input type=\"text\" name=\"searchKey\"></td>");
+		sb.append("<td><input type=\"submit\" value=\"Search\"></td>");
+		sb.append("</tr>");
+		sb.append("</table>");
+		sb.append("</form></br>");
+		sb.append("<table width=\"500px\">");
+		sb.append("<tr>");
+		sb.append("<td>Name</td>");
+		sb.append("<td>Salary</td>");
+		sb.append("<td>Dept</td>");
+		sb.append("</tr>");
+		sb.append("</table>");
+		sb.append("body");
+		sb.append("body");
+		sb.append("</body>");
+		sb.append("</html>");
+		return sb.toString();
+	}
+}

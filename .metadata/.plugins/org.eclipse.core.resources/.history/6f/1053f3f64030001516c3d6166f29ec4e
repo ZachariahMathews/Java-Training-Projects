@@ -1,0 +1,5 @@
+package trainres.services;
+
+public interface JourneyService {
+
+}

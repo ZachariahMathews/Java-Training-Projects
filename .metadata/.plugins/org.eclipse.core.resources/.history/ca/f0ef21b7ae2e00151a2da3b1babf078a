@@ -1,0 +1,11 @@
+<%@page %>
+<% 
+
+	if(request.getParameter("username").equalsIgnoreCase("zach")&&request.getParameter("password").equalsIgnoreCase("pass")){
+		
+		RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
+	}
+	else{
+		RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+	}
+%>

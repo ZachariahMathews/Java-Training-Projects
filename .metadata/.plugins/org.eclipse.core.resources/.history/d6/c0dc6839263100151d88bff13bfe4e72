@@ -1,0 +1,6 @@
+package userLoginMVC.dao;
+
+public interface LoadDAO {
+
+	public void load();
+}

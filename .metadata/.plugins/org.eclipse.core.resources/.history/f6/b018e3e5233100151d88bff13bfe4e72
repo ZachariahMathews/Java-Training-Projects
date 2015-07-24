@@ -1,0 +1,7 @@
+package userLoginMVC.DAO.impl;
+
+import userLoginMVC.DAO.LoadDAO;
+
+public class LoadDAOImpl implements LoadDAO {
+
+}

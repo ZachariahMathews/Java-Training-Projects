@@ -1,0 +1,6 @@
+package trainres.services;
+
+public interface JourneyService {
+
+	public void update(int p_id,int t_id, String t_class,int seats);
+}

@@ -1,0 +1,31 @@
+package mvcdemo.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+import mvcdemo.bean.User;
+import mvcdemo.service.LoginService;
+import mvcdemo.service.impl.LoginServiceImpl;
+
+public class LoginHandler {
+
+	private HttpServletRequest request;
+
+	public LoginHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+	public User validate() throws Exception{
+		
+		User user=null;
+		LoginService s=new LoginServiceImpl();
+		user=s.login(request.getParameter("username"),request.getParameter("password"));
+		User u=new User();
+		u.setUserId(request.getParameter("userid"));
+		u.setPassword(request.getParameter("password"));
+		if("enam".equals(u.getUserId())&&"enam123".equals(u.getPassword())){
+			
+			return u;
+		}
+		return user;
+	}
+}

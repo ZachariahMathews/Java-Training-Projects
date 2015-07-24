@@ -1,0 +1,22 @@
+package trainres.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+import trainres.services.CheckAvailService;
+import trainres.services.impl.CheckAvailServiceImpl;
+
+public class CheckAvailHandler {
+
+	HttpServletRequest request;
+	
+	public CheckAvailHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+
+	public boolean check(){
+		
+		CheckAvailService ps=new CheckAvailServiceImpl();
+		ps.update(pb);
+	}
+}

@@ -1,0 +1,14 @@
+package userLoginMVC.services.impl;
+
+import userLoginMVC.beans.User;
+import userLoginMVC.services.UpdateService;
+
+public class UpdateServiceImpl implements UpdateService {
+
+	@Override
+	public void update(User u) {
+		
+
+	}
+
+}

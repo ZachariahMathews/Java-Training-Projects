@@ -1,0 +1,86 @@
+package trainres.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import trainres.db.SQLConnUtil;
+import trainres.beans.JourneyBean;
+import trainres.beans.PassengerBean;
+import trainres.dao.CheckAvailDAO;
+
+public class CheckAvailDAOImpl implements CheckAvailDAO {
+
+	@Override
+	public boolean update(PassengerBean pb,JourneyBean jb) {
+		
+		boolean s1=false,s2=false,s3=false;
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+		String sql1="insert into T_PASSENGER_0998 values(?,?)";
+		String sql2="insert into T_JOURNEY_0998 values(?,?,?,?)";
+		String sql3="update T_SEATAVAIL_0998 set available=available-? where tid=? and class=?";
+		try {
+			
+			PreparedStatement ps1=conn.prepareStatement(sql1);
+			ps1.setString(1, ""+pb.getP_id());
+			ps1.setString(2, pb.getName());
+			ps1.executeUpdate();
+			s1=true;
+			PreparedStatement ps2=conn.prepareStatement(sql2);
+			ps2.setString(1, ""+jb.getP_id());
+			ps2.setString(2, ""+jb.getT_id());
+			ps2.setString(3, ""+jb.getT_class());
+			ps2.setString(4, ""+jb.getseats());
+			ps2.executeUpdate();
+			s2=true;
+			PreparedStatement ps3=conn.prepareStatement(sql3);
+			ps3.setString(1, ""+jb.getseats());
+			ps3.setString(2, ""+jb.getT_id());
+			ps3.setString(3, ""+jb.getT_class());
+			ps3.executeUpdate();
+			s3=true;
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		finally{
+			
+			sqlconn.closeConnection();
+			if(s1&&s2&&s3){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean check(PassengerBean pb, JourneyBean jb) {
+		
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+		String sql="select available from T_SEATAVAIL_0998 where t_id="+jb.getT_id()+" and class='"+jb.getT_class()+"'";
+		try {
+			
+			Statement st=conn.createStatement();
+			ResultSet rs=st.executeQuery(sql);
+			if(rs.next()){
+				if(Integer.parseInt(rs.getString("avaliable"))>jb.getseats()){
+					
+					System.out.println((rs.getString("avaliable"))+">"+jb.getseats());
+					return true;
+				}
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		finally{
+			sqlconn.closeConnection();
+		}
+		return false;
+	}
+}

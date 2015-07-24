@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Search and display</h1>
+	<form action="SearchServlet">
+		<table>
+			<tr>
+				<td>Search by Name</td>
+				<td>:<input type="radio" checked="checked" name="searchName"></td>
+			</tr>
+			<tr>
+				<td>Search by Dept</td>
+				<td>:<input type="radio" name="searchDept"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

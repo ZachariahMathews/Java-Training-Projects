@@ -1,0 +1,49 @@
+package searchapp.servlets;
+
+import java.io.IOException;
+import java.io.Writer;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import searchapp.bean.SearchItem;
+import searchapp.db.SQLConnUtil;
+
+/**
+ * Servlet implementation class SearchServlet
+ */
+public class SearchServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		Writer w=response.getWriter();
+		SQLConnUtil sqlutil=SQLConnUtil.getInstance();
+		Connection conn=sqlutil.openConnection();
+		try {
+			Statement st=conn.createStatement();
+			if(request.getParameter("g1").equalsIgnoreCase("name")){
+				
+				String[] s=request.getParameter("searchKey").split(" ");
+				for(String s1:s){
+					
+					ResultSet rs=st.executeQuery("select * from T_0998_SearchTable where name='"+s+"'");
+					while(rs.next()){
+						SearchItem si=new SearchItem(rs.getString("name"), Integer.parseInt(rs.getString("salary")), Integer.parseInt(rs.getString("department")));
+						
+					}
+				}
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,5 @@
+package actionscriptdemo.bean;
+
+public class Person {
+
+}

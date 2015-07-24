@@ -1,0 +1,15 @@
+package userLoginMVC.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class UpdateHandler {
+
+	HttpServletRequest request;
+
+	public UpdateHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+	
+	
+}

@@ -1,0 +1,8 @@
+package trainres.dao;
+
+import trainres.beans.PassengerBean;
+
+public interface PassengerDAO {
+
+	public void update(PassengerBean pb);
+}

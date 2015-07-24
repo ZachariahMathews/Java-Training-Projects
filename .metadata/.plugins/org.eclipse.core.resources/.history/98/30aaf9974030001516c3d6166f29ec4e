@@ -1,0 +1,15 @@
+package trainres.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class PassengerHandler {
+
+	private HttpServletRequest request;
+
+	public PassengerHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+	
+	
+}

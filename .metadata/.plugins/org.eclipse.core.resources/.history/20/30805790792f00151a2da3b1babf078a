@@ -1,0 +1,6 @@
+package mvcdemo.service;
+
+public interface LoginService {
+
+	
+}

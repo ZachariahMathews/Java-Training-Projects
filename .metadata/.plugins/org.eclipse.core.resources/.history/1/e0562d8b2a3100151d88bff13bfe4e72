@@ -1,0 +1,6 @@
+package userLoginMVC.services;
+
+public interface UpdateService {
+
+	public void update(User u);
+}

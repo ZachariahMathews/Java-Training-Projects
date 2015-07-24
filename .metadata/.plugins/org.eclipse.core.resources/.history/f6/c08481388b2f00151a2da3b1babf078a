@@ -1,0 +1,22 @@
+package mvcdemo.handlers;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+
+import mvcdemo.bean.Book;
+import mvcdemo.db.SQLConnUtil;
+
+public class BookListHandler {
+
+	private List<Book> list;
+	
+	public List<Book> getBookList() throws SQLException{
+		
+		list.add(new Book("Head Frist Java",300));
+		list.add(new Book("Head Frist C++",350));
+		list.add(new Book("Head Frist .NET",400));
+		return list;
+	}
+}

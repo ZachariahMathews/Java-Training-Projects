@@ -1,0 +1,5 @@
+package trainres.handlers;
+
+public class PassengerHandler {
+
+}

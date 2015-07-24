@@ -1,0 +1,28 @@
+package trainres.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import trainres.beans.PassengerBean;
+import trainres.services.CheckAvailService;
+import trainres.services.impl.PassengerServiceImpl;
+
+public class PassengerHandler {
+
+	private HttpServletRequest request;
+
+	public PassengerHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+	
+	public void update(){
+		
+		PassengerBean pb=new PassengerBean(Integer.parseInt(request.getParameter("pid")),request.getParameter("name"));
+		System.out.println("Handler "+Integer.parseInt(request.getParameter("pid"))+" "+request.getParameter("pname"));
+		CheckAvailService ps=new PassengerServiceImpl();
+		ps.update(pb);
+		HttpSession session=request.getSession();
+		session.setAttribute("passenger", pb);
+	}
+}

@@ -1,0 +1,8 @@
+package trainres.services;
+
+import trainres.beans.PassengerBean;
+
+public interface PassengerService {
+
+	public boolean update(PassengerBean pb);
+}

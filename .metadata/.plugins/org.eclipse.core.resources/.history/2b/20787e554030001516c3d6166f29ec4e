@@ -1,0 +1,8 @@
+package trainres.beans;
+
+public class SeatAvailBean {
+
+	private int t_id;
+	private String t_class;
+	private int available;
+}

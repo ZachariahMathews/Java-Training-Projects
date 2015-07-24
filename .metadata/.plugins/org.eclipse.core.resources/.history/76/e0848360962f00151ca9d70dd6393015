@@ -1,0 +1,13 @@
+package mvcdemo.dao.impl;
+
+import mvcdemo.dao.LogoutDAO;
+
+public class LogoutDAOImpl implements LogoutDAO{
+
+	@Override
+	public void update(String user) {
+		
+				
+	}
+
+}

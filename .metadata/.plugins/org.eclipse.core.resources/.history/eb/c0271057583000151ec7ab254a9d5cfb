@@ -1,0 +1,10 @@
+package trainres.services;
+
+import trainres.beans.JourneyBean;
+import trainres.beans.PassengerBean;
+
+public interface CheckAvailService {
+
+	public boolean check(PassengerBean pb,JourneyBean jb);
+	public void update(PassengerBean pb,JourneyBean jb);
+}

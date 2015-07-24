@@ -1,0 +1,5 @@
+package trainres.dao;
+
+public interface PassenegrDAO {
+
+}

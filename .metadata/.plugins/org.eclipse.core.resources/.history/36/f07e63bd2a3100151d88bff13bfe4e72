@@ -1,0 +1,6 @@
+package userLoginMVC.dao;
+
+public interface UpdateDAO {
+
+	public void update(User u);
+}

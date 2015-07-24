@@ -1,0 +1,5 @@
+package searchapp.bean;
+
+public class SearchItem {
+
+}

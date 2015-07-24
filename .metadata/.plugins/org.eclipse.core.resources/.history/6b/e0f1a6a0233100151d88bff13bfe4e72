@@ -1,0 +1,7 @@
+package userLoginMVC.services.impl;
+
+import userLoginMVC.services.LoadService;
+
+public class LoadServiceImpl implements LoadService {
+
+}

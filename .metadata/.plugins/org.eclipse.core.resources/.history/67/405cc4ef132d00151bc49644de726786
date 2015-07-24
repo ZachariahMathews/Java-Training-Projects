@@ -1,0 +1,11 @@
+
+
+function setName(){
+	alert("name clicked");
+	document.getElementById("searchBy").innerHTML="Name";
+}
+
+function setDept(){
+	alert("dept clicked");
+	document.getElementById("searchBy").innerHTML="Dept";
+}

@@ -1,0 +1,13 @@
+package userLoginMVC.DAO.impl;
+
+import userLoginMVC.dao.LoadDAO;
+
+public class LoadDAOImpl implements LoadDAO {
+
+	@Override
+	public void load() {
+		
+		
+	}
+
+}

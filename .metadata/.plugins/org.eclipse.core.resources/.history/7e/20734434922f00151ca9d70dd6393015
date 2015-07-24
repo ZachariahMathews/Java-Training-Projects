@@ -1,0 +1,14 @@
+package mvcdemo.handlers;
+
+import java.sql.Connection;
+
+import mvcdemo.db.SQLConnUtil;
+
+public class LogoutHandler {
+
+	public void updateDB(){
+		
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+	}
+}

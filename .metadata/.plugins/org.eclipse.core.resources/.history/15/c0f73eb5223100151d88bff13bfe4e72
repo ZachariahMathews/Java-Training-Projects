@@ -1,0 +1,12 @@
+package userLoginMVC.handlers;
+
+import userLoginMVC.services.LoadService;
+
+public class LoadHandler {
+
+	public void load() {
+		
+		LoadService ls=new LoadServiceImpl();
+	}
+
+}

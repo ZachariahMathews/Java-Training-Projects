@@ -1,0 +1,9 @@
+package searchapp.util;
+
+public class SearchForm {
+
+	public static void getSearchForm(){
+		
+		
+	}
+}

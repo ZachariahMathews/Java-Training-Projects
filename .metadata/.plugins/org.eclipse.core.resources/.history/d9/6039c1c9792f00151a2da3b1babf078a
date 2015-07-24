@@ -1,0 +1,5 @@
+package mvcdemo.service.impl;
+
+public class LoginServiceImpl {
+
+}

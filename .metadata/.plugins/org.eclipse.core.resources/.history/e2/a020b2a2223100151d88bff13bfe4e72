@@ -1,0 +1,5 @@
+package userLoginMVC.services;
+
+public class LoadService {
+
+}

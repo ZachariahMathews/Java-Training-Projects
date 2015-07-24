@@ -1,0 +1,56 @@
+package trainres.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import trainres.db.SQLConnUtil;
+import trainres.beans.JourneyBean;
+import trainres.beans.PassengerBean;
+import trainres.dao.CheckAvailDAO;
+
+public class CheckAvailDAOImpl implements CheckAvailDAO {
+
+	@Override
+	public void update(PassengerBean pb,JourneyBean jb) {
+		
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+		String sql="insert into T_PASSENGER_0998 values(?,?)";
+		try {
+			
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setString(1, ""+pb.getP_id());
+			ps.setString(2, pb.getName());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public boolean check(PassengerBean pb, JourneyBean jb) {
+		
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+		String sql="select available from T_SEATAVAIL_0998 where t_id=? and class=?";
+		try {
+			
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setString(1, ""+jb.getT_id());
+			ps.setString(2, jb.getT_class());
+			ResultSet rs=ps.executeQuery(sql);
+			if(rs.next()){
+				if(Integer.parseInt(rs.getString("avaliable"))>jb.getseats()){
+					return true;
+				}
+			}
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return false;
+	}
+}

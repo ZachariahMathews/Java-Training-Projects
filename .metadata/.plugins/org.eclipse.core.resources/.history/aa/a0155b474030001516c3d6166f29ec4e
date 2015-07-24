@@ -1,0 +1,5 @@
+package trainres.beans;
+
+public class SeatAvailBean {
+
+}

@@ -1,0 +1,14 @@
+package mvcdemo.service.impl;
+
+import mvcdemo.service.LogoutService;
+
+public class LogoutServiceImpl implements LogoutService{
+
+	@Override
+	public void update(String user) {
+		
+				
+	}
+
+	
+}

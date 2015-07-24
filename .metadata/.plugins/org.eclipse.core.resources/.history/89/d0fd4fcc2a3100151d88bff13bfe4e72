@@ -1,0 +1,14 @@
+package userLoginMVC.dao.impl;
+
+import userLoginMVC.beans.User;
+import userLoginMVC.dao.UpdateDAO;
+
+public class UpdateDAOImpl implements UpdateDAO {
+
+	@Override
+	public void update(User u) {
+		
+
+	}
+
+}

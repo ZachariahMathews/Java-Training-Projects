@@ -1,0 +1,24 @@
+package mvcdemo.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import mvcdemo.dao.LogoutDAO;
+import mvcdemo.db.SQLConnUtil;
+
+public class LogoutDAOImpl implements LogoutDAO{
+
+	@Override
+	public void update(String user) {
+		
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+		PreparedStatement ps=conn.prepareStatement("insert into login_event(login_id,logindate) values(?,?)");
+		ps.setString(1, request.getParameter("userid"));
+		ps.setString(2, "SYSDATETIME()");
+		ps.executeUpdate();
+		ps.close();
+		sqlconn.closeConnection();		
+	}
+
+}

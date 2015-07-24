@@ -1,0 +1,15 @@
+package userLoginMVC.services.impl;
+
+import userLoginMVC.DAO.LoadDAO;
+import userLoginMVC.services.LoadService;
+
+public class LoadServiceImpl implements LoadService {
+
+	@Override
+	public void load() {
+		
+		LoadDAO dao=new LoadDAOImpl();
+		dao.load();
+	}
+
+}

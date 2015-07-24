@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Search App</title>
+</head>
+<body>
+	<h1>Search and display</h1>
+	<form action="SearchServlet">
+		<table>
+			<tr>
+				<td>Search by Name</td>
+				<td>:&nbsp;<input type="radio" checked="checked" id="radioName" onclick="setName()"></td>
+			</tr>
+			<tr>
+				<td>Search by Dept</td>
+				<td>:&nbsp;<input type="radio" id="radioDept" onclick="setDept()"></td>
+			</tr>
+			<tr>
+				<td>Search by <div id="#searchBy"></div></td>
+				<td>:&nbsp;<input type="text" name="searchKey"></td>
+				<td><input type="submit" value="Search"></td>
+			</tr>
+		</table>
+	</form>
+	</br>
+	<table width="500px">
+		<tr>
+			<td>Name</td>
+			<td>Salary</td>
+			<td>Dept</td>
+		</tr>
+	</table>
+</body>
+</html>

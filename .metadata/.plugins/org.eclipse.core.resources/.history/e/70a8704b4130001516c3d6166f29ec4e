@@ -1,0 +1,6 @@
+package trainres.services;
+
+public interface PassengerService {
+
+	public void update(int t_id, String t_name);
+}

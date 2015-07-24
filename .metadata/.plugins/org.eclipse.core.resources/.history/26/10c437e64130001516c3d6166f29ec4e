@@ -1,0 +1,20 @@
+package trainres.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+import trainres.beans.PassengerBean;
+
+public class PassengerHandler {
+
+	private HttpServletRequest request;
+
+	public PassengerHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+	
+	public void update(){
+		PassengerBean pb=new PassengerBean(Integer.parseInt(request.getParameter("p_id")),request.getParameter("p_name"));
+		PassengerService ps=new PassengerServiceImpl(pb);
+	}
+}

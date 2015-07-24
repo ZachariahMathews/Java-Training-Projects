@@ -1,0 +1,18 @@
+package userLoginMVC.dao.impl;
+
+import java.sql.Connection;
+
+import userLoginMVC.beans.User;
+import userLoginMVC.dao.UpdateDAO;
+import userLoginMVC.db.SQLConnUtil;
+
+public class UpdateDAOImpl implements UpdateDAO {
+
+	@Override
+	public void update(User u) {
+		
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+	}
+
+}

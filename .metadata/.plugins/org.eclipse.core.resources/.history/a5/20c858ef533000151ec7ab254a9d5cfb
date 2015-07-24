@@ -1,0 +1,19 @@
+package trainres.services.impl;
+
+import trainres.beans.JourneyBean;
+import trainres.beans.PassengerBean;
+import trainres.dao.PassengerDAO;
+import trainres.dao.impl.PassengerDAOImpl;
+import trainres.services.CheckAvailService;
+
+public class CheckAvailServiceImpl implements CheckAvailService {
+
+	@Override
+	public boolean update(PassengerBean pb,JourneyBean jb) {
+		
+		PassengerDAO pdao=new PassengerDAOImpl();
+		pdao.update(pb,jb);
+		return true;
+	}
+
+}

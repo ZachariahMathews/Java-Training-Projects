@@ -1,0 +1,33 @@
+package mvcdemo.handlers;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.http.HttpServletRequest;
+
+import mvcdemo.db.SQLConnUtil;
+
+
+public class LogoutHandler {
+
+	private HttpServletRequest request;
+
+	public LogoutHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+	
+	public void updateDB() throws SQLException{
+		
+		LogoutService ls=new LogoutServiceImpl();
+		SQLConnUtil sqlconn=SQLConnUtil.getInstance();
+		Connection conn=sqlconn.openConnection();
+		PreparedStatement ps=conn.prepareStatement("insert into login_event(login_id,logindate) values(?,?)");
+		ps.setString(1, request.getParameter("userid"));
+		ps.setString(2, "SYSDATETIME()");
+		ps.executeUpdate();
+		ps.close();
+		sqlconn.closeConnection();
+	}
+}

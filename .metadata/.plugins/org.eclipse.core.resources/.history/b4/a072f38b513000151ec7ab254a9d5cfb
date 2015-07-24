@@ -1,0 +1,8 @@
+package trainres.services;
+
+import trainres.beans.JourneyBean;
+
+public interface JourneyService {
+
+	public void update(JourneyBean jb);
+}

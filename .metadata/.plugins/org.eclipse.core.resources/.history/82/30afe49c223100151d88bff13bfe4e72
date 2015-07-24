@@ -1,0 +1,10 @@
+package userLoginMVC.handlers;
+
+public class LoadHandler {
+
+	public void load() {
+		
+		
+	}
+
+}

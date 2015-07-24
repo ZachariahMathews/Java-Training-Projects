@@ -1,0 +1,17 @@
+package trainres.services.impl;
+
+import trainres.beans.PassengerBean;
+import trainres.dao.PassengerDAO;
+import trainres.dao.impl.PassengerDAOImpl;
+import trainres.services.PassengerService;
+
+public class PassengerServiceImpl implements PassengerService {
+
+	@Override
+	public void update(PassengerBean pb) {
+		
+		PassengerDAO pdao=new PassengerDAOImpl();
+		pdao.update(pb);
+	}
+
+}

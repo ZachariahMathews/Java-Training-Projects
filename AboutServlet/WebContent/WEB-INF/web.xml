@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>AboutServlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AboutServlet</display-name>
+    <servlet-name>AboutServlet</servlet-name>
+    <servlet-class>test.AboutServlet</servlet-class>
+    <init-param>
+      <param-name>driver</param-name>
+      <param-value>com.microsoft</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AboutServlet</servlet-name>
+    <url-pattern>/AboutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FinalServlet</display-name>
+    <servlet-name>FinalServlet</servlet-name>
+    <servlet-class>test.FinalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FinalServlet</servlet-name>
+    <url-pattern>/FinalServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
