@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="calculationdemo.util.CalculationForm"/>
-<fullyQualifiedTypeName name="java.lang.Character"/>
-<fullyQualifiedTypeName name="calculationdemo.util.Calculation"/>
 <fullyQualifiedTypeName name="calculationdemo.util.HistoryForm"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.oracle.jrockit.jfr.RequestDelegate"/>
@@ -29,17 +26,14 @@
 <fullyQualifiedTypeName name="mvcdemo.dao.LoginDAO"/>
 <fullyQualifiedTypeName name="mvcdemo.service.LoginService"/>
 <fullyQualifiedTypeName name="mvcdemo.service.impl.LoginServiceImpl"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="mvcdemo.bean.Book"/>
 <fullyQualifiedTypeName name="mvcdemo.dao.impl.LoginDAOImpl"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="mvcdemo.handlers.LogoutHandler"/>
 <fullyQualifiedTypeName name="mvcdemo.db.SQLConnUtil"/>
 <fullyQualifiedTypeName name="mvcdemo.dao.LogoutDAO"/>
 <fullyQualifiedTypeName name="mvcdemo.dao.impl.LogoutDAOImpl"/>
 <fullyQualifiedTypeName name="mvcdemo.service.LogoutService"/>
 <fullyQualifiedTypeName name="mvcdemo.service.impl.LogoutServiceImpl"/>
-<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 <fullyQualifiedTypeName name="trainres.handlers.PassengerHandler"/>
 <fullyQualifiedTypeName name="trainres.dao.PassenegrDAO"/>
 <fullyQualifiedTypeName name="trainres.services.PassengerService"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="userLoginMVC.beans.User"/>
 <fullyQualifiedTypeName name="userLoginMVC.db.SQLConnUtil"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="jstlDemo.beans.Person"/>
+<fullyQualifiedTypeName name="jstlDemo.utils.MyUtil"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>

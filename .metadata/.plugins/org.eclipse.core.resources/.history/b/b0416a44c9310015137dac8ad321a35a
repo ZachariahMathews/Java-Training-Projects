@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+${param.uid }<br>
+${param.pwd}<br>
+<c:set var="name" value="<%=new java.util.Date() %>"/>
+${name }<br>
+<!-- IF STATEMENT -->
+<c:if test="${param.role=='admin'}">
+admin<br>
+</c:if>
+
+<c:choose>
+	<c:when test="${param.role=='admin' }">
+		You are admin<br>
+	</c:when>
+	<c:when test="${param.role=='HR' }">
+		You are HR<br>
+	</c:when>
+	<c:otherwise>
+		Who are you?<br>
+	</c:otherwise>
+</c:choose>
+
+<c:forTokens var="day" items="mon,tue,wed,thur,fri,sat,sun" delims=",">
+${day }<br>
+</c:forTokens>
+</body>
+</html>
