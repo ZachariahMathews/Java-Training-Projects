@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DoIt - Login</title>
+<link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
 	<h1>Login Form</h1>

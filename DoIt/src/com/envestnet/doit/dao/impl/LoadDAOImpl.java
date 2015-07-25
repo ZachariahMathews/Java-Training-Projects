@@ -10,7 +10,7 @@ import java.util.Set;
 import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.dao.LoadDAO;
 import com.envestnet.doit.db.SQLConnUtil;
-import com.envestnet.doit.util.ConvertSetUtil;
+import com.envestnet.doit.util.ConvertListUtil;
 
 public class LoadDAOImpl implements LoadDAO {
 
@@ -22,7 +22,7 @@ public class LoadDAOImpl implements LoadDAO {
 		try {
 			Statement st=conn.createStatement();
 			ResultSet rs=st.executeQuery("select * from TASK");
-			tasks=ConvertSetUtil.convert(rs);
+			tasks=ConvertListUtil.convert(rs);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
