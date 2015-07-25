@@ -52,7 +52,8 @@ public class Controller extends HttpServlet {
 			else{
 				try {
 					
-					requestForward(request, response, "login.jsp");
+					request.setAttribute("login", false);
+					requestForward(request, response, "login.jsp");					
 				} catch (IOException | ServletException e) {
 					
 					e.printStackTrace();

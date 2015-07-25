@@ -9,10 +9,15 @@
 <body>
 	<h1>Login Form</h1>
 	<form action="Controller">
-		User ID : <input type="text" name="userid"><br> Password
-		: <input type="password" name="password"><br> <input
-			type="hidden" name="handler" value="login"> <input
-			type="submit" value="Submit">
+		User ID : <input type="text" name="userid"><br> 
+		Password : <input type="password" name="password"><br> 
+		<input type="hidden" name="handler" value="login"> 
+		<input type="submit" value="Submit">
+		<%if(request.getAttribute("login")==null){}
+		else if(!(Boolean)request.getAttribute("login")){
+		%>
+		<span> Login failed.</span>
+		<% }%>
 	</form>
 </body>
 </html>
