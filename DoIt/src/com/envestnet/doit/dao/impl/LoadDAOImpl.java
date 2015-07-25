@@ -21,7 +21,7 @@ public class LoadDAOImpl implements LoadDAO {
 		List<Task> tasks=null;
 		try {
 			Statement st=conn.createStatement();
-			ResultSet rs=st.executeQuery("select * from T_USER_0998");
+			ResultSet rs=st.executeQuery("select * from TASK");
 			tasks=ConvertSetUtil.convert(rs);
 		} catch (SQLException e) {
 			
