@@ -131,7 +131,7 @@
                prefix="localhost_access_log." suffix=".txt" pattern="common" resolveHosts="false"/>
         -->
 
-      <Context docBase="C:\Users\truser\Envestnet-Main-Project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\truser\Envestnet-Main-Project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jstlDemo" path="/jstlDemo" reloadable="true" source="org.eclipse.jst.jee.server:jstlDemo"/></Host>
+      <Context docBase="C:\Users\truser\Envestnet-Main-Project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\truser\Envestnet-Main-Project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\DoIt" path="/DoIt" reloadable="true" source="org.eclipse.jst.jee.server:DoIt"/></Host>
     </Engine>
   </Service>
 </Server>

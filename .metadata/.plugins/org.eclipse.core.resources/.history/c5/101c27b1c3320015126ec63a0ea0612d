@@ -1,0 +1,29 @@
+package com.envestnet.doit.util;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.envestnet.doit.beans.Task;
+
+
+public class ConvertSetUtil {
+
+public static List<Task> convert(ResultSet rs){
+		
+		List<Task> tasks=new ArrayList<Task>();
+		try {
+			while(rs.next()){
+				Task u=new Task();
+				u.setId(rs.getInt(1));
+				u.setName(rs.getString(2));
+				tasks.add(u);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return users;
+	}
+}

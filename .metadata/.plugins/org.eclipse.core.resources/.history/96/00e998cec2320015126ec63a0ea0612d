@@ -1,0 +1,17 @@
+package com.envestnet.doit.services.impl;
+
+import java.util.List;
+
+import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.services.LoadService;
+
+public class LoadServiceImpl implements LoadService {
+
+	@Override
+	public List<Task> load() {
+		
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.envestnet.doit.handlers;
+
+import java.util.List;
+
+import com.envestnet.doit.beans.Task;
+
+public class LoadHandler {
+
+	public List<Task> load() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

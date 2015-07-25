@@ -1,8 +1,0 @@
-package searchapp.bean;
-
-public class SearchItem {
-
-	private String name;
-	private int salary;
-	private int department;
-}

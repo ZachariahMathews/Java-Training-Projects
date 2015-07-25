@@ -1,0 +1,14 @@
+package com.envestnet.doit.services.impl;
+
+import com.envestnet.doit.services.LoginService;
+
+public class LoginServiceImpl implements LoginService {
+
+	@Override
+	public boolean login() {
+		
+		
+		return false;
+	}
+
+}

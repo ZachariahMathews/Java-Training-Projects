@@ -1,0 +1,6 @@
+package com.envestnet.doit.services;
+
+public interface LoginService {
+
+	public boolean login(User u);
+}

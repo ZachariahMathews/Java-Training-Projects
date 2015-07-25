@@ -1,0 +1,14 @@
+package com.envestnet.doit.beans;
+
+import java.sql.Time;
+import java.sql.Date;
+
+public class Task {
+
+	private int taskid;
+	private String userid;
+	private String category;
+	private String task;
+	private Date taskdate;
+	private Time tasktime;
+}

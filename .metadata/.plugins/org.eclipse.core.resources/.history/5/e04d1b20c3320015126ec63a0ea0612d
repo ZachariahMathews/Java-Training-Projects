@@ -1,0 +1,16 @@
+package com.envestnet.doit.dao.impl;
+
+import java.util.List;
+
+import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.dao.LoadDAO;
+
+public class LoadDAOImpl implements LoadDAO {
+
+	@Override
+	public List<Task> load() {
+		
+		return null;
+	}
+
+}

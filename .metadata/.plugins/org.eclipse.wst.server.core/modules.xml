@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <modules>
   <module moduleId="org.eclipse.jst.jee.server:jspBasicsDemo" serverId="Tomcat v6.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:jspTags" serverId="Tomcat v6.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:SeachApp" serverId="Tomcat v6.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:TrainReservation" serverId="Tomcat v6.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:HelloWorld" serverId="Tomcat v6.0 Server at localhost"/>

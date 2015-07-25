@@ -1,0 +1,18 @@
+package com.envestnet.doit.handlers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+import com.envestnet.doit.beans.Task;
+
+public class LoadHandler {
+
+	public List<Task> load() {
+		
+		LoadService ls=new LoadServiceImpl();
+		return ls.load();
+	}
+
+	
+}

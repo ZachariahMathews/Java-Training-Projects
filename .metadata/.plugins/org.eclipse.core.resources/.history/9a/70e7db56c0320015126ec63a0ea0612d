@@ -1,0 +1,28 @@
+package com.envestnet.doit.dao.impl;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.envestnet.doit.dao.LoginDAO;
+import com.envestnet.doit.db.SQLConnUtil;
+
+public class LoginDAOImpl implements LoginDAO {
+
+	@Override
+	public boolean login() {
+		
+		SQLConnUtil sql=SQLConnUtil.getInstance();
+		Connection conn=sql.openConnection();
+		try {
+			
+			Statement st=conn.createStatement();
+			st.executeQuery("select * from USER where userid='"++"' and password=''");
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+}

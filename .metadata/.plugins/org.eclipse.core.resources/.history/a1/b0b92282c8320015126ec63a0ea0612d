@@ -1,0 +1,37 @@
+package com.envestnet.doit.util;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.envestnet.doit.beans.Task;
+
+
+public class ConvertSetUtil {
+
+public static List<Task> convert(ResultSet rs){
+		
+		List<Task> tasks=new ArrayList<Task>();
+		try {
+			while(rs.next()){
+				Task t=new Task();
+				t.setTaskid(rs.getInt("taskid"));
+				t.setUserid(rs.getString("userid"));
+				t.setCategory(rs.getString("category"));
+				String[] date=rs.getString("taskdate").split("-");
+				String[] time=rs.getString("tasktime").split(":");
+				t.setTasktime(LocalTime.of(Integer.parseInt(time[0]), Integer.parseInt(time[1])));
+				t.setTaskdate(LocalDate.of(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2])));
+				tasks.add(t);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return tasks;
+	}
+}
