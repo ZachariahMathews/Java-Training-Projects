@@ -1,13 +1,13 @@
-package com.envestnet.doit.services;
+package com.envestnet.doit.dto;
 
 import java.util.List;
 
 import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.dao.beans.TaskBean;
 
-public interface LoadService {
+public interface LoadDTO {
 
-	public List<Task> load();
-	
+	public List<Task> convertFrom(List<TaskBean> taskbeans);
+
 	
 }

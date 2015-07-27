@@ -8,17 +8,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.dao.beans.TaskBean;
 
 
 public class ConvertListUtil {
 
-public static List<Task> convert(ResultSet rs){
+public static List<TaskBean> convert(ResultSet rs){
 		
-		List<Task> tasks=new ArrayList<Task>();
+		List<TaskBean> tasks=new ArrayList<TaskBean>();
 		try {
 			while(rs.next()){
-				Task t=new Task();
+				TaskBean t=new TaskBean();
 				t.setTaskid(rs.getInt("taskid"));
 				t.setUserid(rs.getString("userid"));
 				t.setCategory(rs.getString("category"));

@@ -5,19 +5,17 @@ import java.time.LocalDateTime;
 import javax.servlet.http.HttpServletRequest;
 
 import com.envestnet.doit.beans.Task;
-import com.envestnet.doit.services.UpdateService;
-import com.envestnet.doit.services.impl.UpdateServiceImpl;
 
-public class UpdateHandler {
+public class EditHandler {
 
-	HttpServletRequest request;
+	private HttpServletRequest request;
 
-	public UpdateHandler(HttpServletRequest request) {
+	public EditHandler(HttpServletRequest request) {
 		
 		this.request = request;
 	}
 
-	public Task update() {
+	public void edit() {
 		
 		Task task=new Task();
 		task.setUserid(""+request.getSession().getAttribute("userid"));
@@ -31,11 +29,6 @@ public class UpdateHandler {
 		if(request.getParameter("meridian").equals("PM")){
 			task.setTaskdatetime(task.getTaskdatetime().plusHours(12));
 		}
-		
-		UpdateService us=new UpdateServiceImpl();
-		us.update(task);
-		return task;
-		
 	}
 	
 }

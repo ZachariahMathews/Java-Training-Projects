@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.handlers.EditHandler;
 import com.envestnet.doit.handlers.LoadHandler;
 import com.envestnet.doit.handlers.LoginHandler;
 import com.envestnet.doit.handlers.UpdateHandler;
@@ -51,6 +52,7 @@ public class Controller extends HttpServlet {
 			if(lh.login())
 				try {
 					
+					request.getSession().setAttribute("userid", request.getParameter("userid"));
 					requestForward(request, response, "list-home.jsp");
 				} catch (IOException | ServletException e) {
 					
@@ -72,7 +74,7 @@ public class Controller extends HttpServlet {
 			List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
 			UpdateHandler uh=new UpdateHandler(request);
 			tasks.add(uh.update());
-			getServletContext().setAttribute("tasks", tasks);
+			getServletContext().setAttribute("tasks", SortListUtil.sort(tasks));
 			try {
 				
 				requestForward(request, response, "list-home.jsp");					
@@ -80,6 +82,32 @@ public class Controller extends HttpServlet {
 				
 				e.printStackTrace();
 			}
+		}
+		else if("edit-link".equals(handlerName)){
+			
+			/*List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
+			EditHandler eh=new EditHandler(request);
+			eh.edit();*/
+			try {
+				requestForward(request, response, "edit.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+			
+		}
+		else if("edit-page".equals(handlerName)){
+			
+			List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
+			EditHandler eh=new EditHandler(request);
+			eh.edit();
+			try {
+				requestForward(request, response, "edit.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+			
 		}
 	}
 	

@@ -1,3 +1,4 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.util.List"%>
 <%@page import="com.envestnet.doit.beans.Task"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -39,15 +40,19 @@
 			<td>Task Description</td>
 			<td>Task Time</td>
 			<td>Task Date</td>
+			<td></td>
 		</tr>
 		<%
+		int i=0;
 		for(Task t:(List<Task>)getServletContext().getAttribute("tasks")){
+			t.setDisplayid(++i);
 		%>
 		<tr>
 			<td><%=t.getPriority() %></td>
 			<td><%=t.getTask() %></td>
-			<td><%=t.getTasktime().toString() %></td>
-			<td><%=t.getTaskdate().toString() %></td>
+			<td><%=t.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a")) %></td>
+			<td><%=t.getTaskdatetime().toLocalDate().toString()%></td>
+			<td><a href="Controller?handler=edit-link&index=<%=i %>">Edit</a></td>
 		</tr>
 		<%} %>
 	</table>

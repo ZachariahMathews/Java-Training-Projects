@@ -1,21 +1,20 @@
-package com.envestnet.doit.beans;
+package com.envestnet.doit.dao.beans;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
-public class Task {
-	
-	private int displayid;
+public class TaskBean implements Serializable{
+
 	private int taskid;
 	private String userid;
 	private String category;
 	private String task;
-	private LocalDateTime taskdatetime;
+	private LocalDate taskdate;
+	private LocalTime tasktime;
 	private int priority;
 	private int taskgroup;
 	
-	public Task() {
-		// TODO Auto-generated constructor stub
-	}
 	public int getTaskid() {
 		return taskid;
 	}
@@ -40,14 +39,20 @@ public class Task {
 	public void setTask(String task) {
 		this.task = task;
 	}
+	public LocalDate getTaskdate() {
+		return taskdate;
+	}
+	public void setTaskdate(LocalDate taskdate) {
+		this.taskdate = taskdate;
+	}
+	public LocalTime getTasktime() {
+		return tasktime;
+	}
+	public void setTasktime(LocalTime tasktime) {
+		this.tasktime = tasktime;
+	}
 	public int getPriority() {
 		return priority;
-	}
-	public LocalDateTime getTaskdatetime() {
-		return taskdatetime;
-	}
-	public void setTaskdatetime(LocalDateTime taskdatetime) {
-		this.taskdatetime = taskdatetime;
 	}
 	public void setPriority(int priority) {
 		this.priority = priority;
@@ -58,10 +63,9 @@ public class Task {
 	public void setTaskgroup(int taskgroup) {
 		this.taskgroup = taskgroup;
 	}
-	public int getDisplayid() {
-		return displayid;
+	public TaskBean() {
+		// TODO Auto-generated constructor stub
 	}
-	public void setDisplayid(int displayid) {
-		this.displayid = displayid;
-	}
+	
+	
 }

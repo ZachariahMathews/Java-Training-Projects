@@ -5,14 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.envestnet.doit.beans.User;
 import com.envestnet.doit.dao.LoginDAO;
+import com.envestnet.doit.dao.beans.UserBean;
 import com.envestnet.doit.db.SQLConnUtil;
 
 public class LoginDAOImpl implements LoginDAO {
 
 	@Override
-	public boolean login(User u) {
+	public boolean login(UserBean u) {
 		
 		SQLConnUtil sql=SQLConnUtil.getInstance();
 		Connection conn=sql.openConnection();

@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.dao.UpdateDAO;
+import com.envestnet.doit.dao.beans.TaskBean;
 import com.envestnet.doit.db.SQLConnUtil;
 
 public class UpdateDAOImpl implements UpdateDAO {
 
 	@Override
-	public void update(Task t) {
+	public void update(TaskBean t) {
 
 		SQLConnUtil sql=SQLConnUtil.getInstance();
 		Connection conn=sql.openConnection();

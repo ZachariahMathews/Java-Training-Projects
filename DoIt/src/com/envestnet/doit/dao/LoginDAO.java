@@ -1,8 +1,8 @@
 package com.envestnet.doit.dao;
 
-import com.envestnet.doit.beans.User;
+import com.envestnet.doit.dao.beans.UserBean;
 
 public interface LoginDAO {
 
-	public boolean login(User u);
+	public boolean login(UserBean u);
 }

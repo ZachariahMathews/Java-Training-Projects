@@ -1,8 +1,8 @@
 package com.envestnet.doit.services;
 
-import com.envestnet.doit.beans.User;
+import com.envestnet.doit.dao.beans.UserBean;
 
 public interface LoginService {
 
-	public boolean login(User u);
+	public boolean login(UserBean u);
 }
