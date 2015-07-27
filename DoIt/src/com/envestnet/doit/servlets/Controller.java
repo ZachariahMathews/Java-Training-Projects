@@ -1,6 +1,8 @@
 package com.envestnet.doit.servlets;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +15,7 @@ import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.handlers.LoadHandler;
 import com.envestnet.doit.handlers.LoginHandler;
 import com.envestnet.doit.handlers.UpdateHandler;
+import com.envestnet.doit.util.SortListUtil;
 
 /**
  * Servlet implementation class Controller
@@ -24,7 +27,8 @@ public class Controller extends HttpServlet {
 	public void init() throws ServletException {
 		
 		LoadHandler lh=new LoadHandler();
-    	getServletContext().setAttribute("tasks", lh.load());
+    	List<Task>tasks=lh.load();
+    	getServletContext().setAttribute("tasks",SortListUtil.sort(tasks));
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

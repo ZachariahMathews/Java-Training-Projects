@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DoIt - Home</title>
-<link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+<link rel="stylesheet" href="css/bootstrap-datepicker3.css" />
 <link rel="stylesheet" href="css/bootstrap.css" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/bootstrap-timepicker.css" />
@@ -26,7 +26,7 @@
 		<br> Time:
 		<div class="input-append bootstrap-timepicker">
 			<input id="timepicker1" type="text" class="input-small"> 
-			<spanm class="add-on"><i class="icon-time"></i></span>
+			<span class="add-on"><i class="icon-time"></i></span>
 		</div>
 		<input type="hidden" name="handler" value="list-add">
 		<input type="submit" value="Add"> <br>
@@ -58,11 +58,12 @@
 	<script type="text/javascript">
 	 
 	function datepick(){
+		
 		$('#timepicker1').timepicker();
         $('#datepicker1').datepicker({
             format: "yyyy-mm-dd",
             autoclose: true
-        });  
+        });
         
 	}
 	</script>
