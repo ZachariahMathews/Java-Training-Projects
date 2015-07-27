@@ -56,14 +56,24 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<head>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
       out.write("<title>DoIt - Login</title>\r\n");
+      out.write("<link href=\"css/style.css\" rel=\"stylesheet\"/>\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("\t<h1>Login Form</h1>\r\n");
       out.write("\t<form action=\"Controller\">\r\n");
-      out.write("\t\tUser ID : <input type=\"text\" name=\"userid\"><br>\r\n");
-      out.write("\t\tPassword : <input type=\"password\" name=\"password\"><br>\r\n");
-      out.write("\t\t<input type=\"hidden\" name=\"handler\" value=\"login\">\r\n");
+      out.write("\t\tUser ID : <input type=\"text\" name=\"userid\"><br> \r\n");
+      out.write("\t\tPassword : <input type=\"password\" name=\"password\"><br> \r\n");
+      out.write("\t\t<input type=\"hidden\" name=\"handler\" value=\"login\"> \r\n");
       out.write("\t\t<input type=\"submit\" value=\"Submit\">\r\n");
+      out.write("\t\t");
+if(request.getAttribute("login")==null){}
+		else if(!(Boolean)request.getAttribute("login")){
+		
+      out.write("\r\n");
+      out.write("\t\t<span> Login failed.</span>\r\n");
+      out.write("\t\t");
+ }
+      out.write("\r\n");
       out.write("\t</form>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");

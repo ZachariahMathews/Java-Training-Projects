@@ -1,0 +1,7 @@
+package com.envestnet.doit.services;
+
+public interface UpdateService {
+
+	public void update();
+
+}

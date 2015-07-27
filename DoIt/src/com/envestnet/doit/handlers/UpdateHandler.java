@@ -1,0 +1,39 @@
+package com.envestnet.doit.handlers;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.services.UpdateService;
+import com.envestnet.doit.services.impl.UpdateServiceImpl;
+
+public class UpdateHandler {
+
+	HttpServletRequest request;
+
+	public UpdateHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+
+	public Task update() {
+		
+		Task t=new Task();
+		t.setUserid(request.getParameter("userid"));
+		t.setPriority(Integer.parseInt(request.getParameter("priority")));
+		t.setCategory(request.getParameter("category"));
+		t.setTask(request.getParameter("task"));
+		String[] date=request.getParameter("taskdate").split("-");
+		t.setTasktime(LocalTime.of(Integer.parseInt(request.getParameter("hour")), Integer.parseInt(request.getParameter("minute"))));
+		t.setTaskdate(LocalDate.of(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2])));
+		//t.setTaskgroup(Integer.parseInt(request.getParameter("taskgroup")));
+		
+		UpdateService us=new UpdateServiceImpl();
+		us.update(t);
+		return t;
+		
+	}
+	
+}

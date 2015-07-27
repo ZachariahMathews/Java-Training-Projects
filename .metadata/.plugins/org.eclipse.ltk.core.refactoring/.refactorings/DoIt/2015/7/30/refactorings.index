@@ -4,3 +4,10 @@
 1437821917299	Move 'login.jsp' to 'jsp'
 1437822100415	Delete element
 1437822318867	Rename package 'trainres.db'
+1437861847835	Move 2 resources to 'WebContent'
+1437861979242	Copy file
+1437862062475	Delete element
+1437862195287	Copy file
+1437862198059	Delete element
+1437862245116	Move 'style.css' to 'css'
+1437866504374	Rename type 'ConvertSetUtil'

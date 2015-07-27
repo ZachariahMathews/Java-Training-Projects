@@ -5,4 +5,5 @@
   <module moduleId="org.eclipse.jst.jee.server:SeachApp" serverId="Tomcat v6.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:TrainReservation" serverId="Tomcat v6.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:HelloWorld" serverId="Tomcat v6.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:DoIt" serverId="Tomcat v6.0 Server at localhost"/>
 </modules>

@@ -1,0 +1,28 @@
+package com.envestnet.doit.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.services.UpdateService;
+import com.envestnet.doit.services.impl.UpdateServiceImpl;
+
+public class UpdateHandler {
+
+	HttpServletRequest request;
+
+	public UpdateHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+
+	public void update() {
+		
+		Task t=new Task();
+		t.setUserid(request.getParameter("userid"));
+		t.setPriority(Integer.parseInt(request.getParameter("priority")));
+		UpdateService us=new UpdateServiceImpl();
+		us.update();
+		
+	}
+	
+}

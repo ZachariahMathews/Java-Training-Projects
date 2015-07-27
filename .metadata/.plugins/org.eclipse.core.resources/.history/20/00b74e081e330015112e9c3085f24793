@@ -1,0 +1,65 @@
+<%@page import="java.util.List"%>
+<%@page import="com.envestnet.doit.beans.Task"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>DoIt - Home</title>
+<link rel="stylesheet" href="css/bootstrap-datepicker.css"/>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body onload="datepick()">
+	<h1>Home</h1>
+	<form action="Controller">
+		Enter the task : <input type="text" name="task"> <br>
+		Priority : 
+		<select name="priority">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select> <br>
+		Date:<input type="text" id="datepicker1" class="form-control">
+		<input type="submit" value="Add"> <br>
+	</form>
+	<br>
+	<hr>
+	<table width="100%">
+		<tr>
+			<td>Priority</td>
+			<td>Task Description</td>
+			<td>Task Time</td>
+			<td>Task Date</td>
+		</tr>
+		<%
+		for(Task t:(List<Task>)getServletContext().getAttribute("tasks")){
+		%>
+		<tr>
+			<td><%=t.getPriority() %></td>
+			<td><%=t.getTask() %></td>
+			<td><%=t.getTasktime().toString() %></td>
+			<td><%=t.getTaskdate().toString() %></td>
+		</tr>
+		<%} %>
+	</table>
+	<table>
+
+	</table>
+	
+	<script type="text/javascript">
+	function datepick(){
+    	alert("ready");
+        $('#datepicker1').datepicker({
+            format: "dd/mm/yyyy"
+        });  
+	}
+	</script>
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>

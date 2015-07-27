@@ -1,0 +1,24 @@
+package com.envestnet.doit.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.envestnet.doit.services.UpdateService;
+import com.envestnet.doit.services.impl.UpdateServiceImpl;
+
+public class UpdateHandler {
+
+	HttpServletRequest request;
+
+	public UpdateHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+
+	public void update() {
+		
+		UpdateService us=new UpdateServiceImpl();
+		us.update();
+		
+	}
+	
+}

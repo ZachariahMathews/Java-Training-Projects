@@ -1,0 +1,5 @@
+body{
+}
+#datepicker1{
+	width:50%;
+}
