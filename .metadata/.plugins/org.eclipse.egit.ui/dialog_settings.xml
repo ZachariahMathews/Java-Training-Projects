@@ -2,9 +2,11 @@
 <section name="Workbench">
 	<item value="true" key="CommitDialog.showUntracked"/>
 	<list key="CommitDialog.authorValues">
+		<item value="zachariahmathews &lt;zachariah.m.mathews@gmail.com&gt;"/>
 		<item value="Zachariah Mathews &lt;zachariah.m.mathews@gmail.com&gt;"/>
 	</list>
 	<list key="CommitDialog.committerValues">
+		<item value="zachariahmathews &lt;zachariah.m.mathews@gmail.com&gt;"/>
 		<item value="Zachariah Mathews &lt;zachariah.m.mathews@gmail.com&gt;"/>
 	</list>
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">

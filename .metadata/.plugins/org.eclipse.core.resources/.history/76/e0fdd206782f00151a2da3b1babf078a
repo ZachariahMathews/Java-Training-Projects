@@ -1,5 +1,0 @@
-package mvcdemo.dao;
-
-public interface LoginDAO {
-
-}

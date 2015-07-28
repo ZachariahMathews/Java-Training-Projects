@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
+		maxActive="2" maxIdle="1" maxWait="10000" username="enam" password="enam123"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" ur="jdbc:sqlserver://172.20.160.150" />
+</Context>

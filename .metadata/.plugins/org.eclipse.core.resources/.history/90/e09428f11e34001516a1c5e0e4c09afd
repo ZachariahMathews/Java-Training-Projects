@@ -1,0 +1,22 @@
+package com.envestnet.doit.util;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import com.envestnet.doit.beans.Task;
+
+public class SortListUtil {
+
+	public List<Task> sort(List<Task> tasks){
+		
+		Collections.sort(tasks, new Comparator<Task>() {
+    		public int compare(Object TaskOne, Object TaskTwo) {
+    		//use instanceof to verify the references are indeed of the type in question
+    		return ((Task)TaskOne).getTaskdate()
+    		.compareTo(((Task)TaskTwo).getTaskdate());
+    		}
+    		});
+		return tasks; 
+	}
+}

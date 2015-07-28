@@ -1,0 +1,5 @@
+package com.envestnet.doit.services.impl;
+
+public interface EditDAO {
+
+}

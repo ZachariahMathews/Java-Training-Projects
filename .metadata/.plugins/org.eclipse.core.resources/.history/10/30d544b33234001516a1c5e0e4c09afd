@@ -1,0 +1,5 @@
+package com.envestnet.doit.dao.beans;
+
+public class Task {
+
+}

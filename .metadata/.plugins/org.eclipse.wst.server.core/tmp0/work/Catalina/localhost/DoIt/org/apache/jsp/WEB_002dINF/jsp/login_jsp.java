@@ -74,7 +74,8 @@ if(request.getAttribute("login")==null){}
       out.write("\t\t");
  }
       out.write("\r\n");
-      out.write("\t</form>\r\n");
+      out.write("\t</form><br>\r\n");
+      out.write("\t<a href=\"Controller?handler=signup-link\">Sign-up here</a>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {

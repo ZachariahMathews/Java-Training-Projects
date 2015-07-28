@@ -1,9 +1,0 @@
-package mvcdemo.handlers;
-
-import java.util.List;
-
-public class BookListHandler {
-
-	private List<Book> list;
-	
-}

@@ -1,0 +1,7 @@
+package com.envestnet.doit.dto.impl;
+
+import com.envestnet.doit.dto.LoadDTO;
+
+public class LoadDTOImpl extends LoadDTO {
+
+}

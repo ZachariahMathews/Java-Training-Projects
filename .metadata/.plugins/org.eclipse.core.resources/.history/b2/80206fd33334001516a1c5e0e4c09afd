@@ -1,0 +1,16 @@
+package com.envestnet.doit.dto;
+
+import java.util.List;
+
+import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.dao.beans.TaskBean;
+
+public class LoadDTO {
+
+	public List<Task> convert(List<TaskBean> taskbeans) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

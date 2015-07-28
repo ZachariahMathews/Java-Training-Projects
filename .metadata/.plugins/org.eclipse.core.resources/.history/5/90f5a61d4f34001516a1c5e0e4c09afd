@@ -1,0 +1,19 @@
+package com.envestnet.doit.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class EditHandler {
+
+	private HttpServletRequest request;
+
+	public EditHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+
+	public void edit() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,7 +1,0 @@
-package mvcdemo.bean;
-
-public class Book {
-
-	private String name;
-	
-}

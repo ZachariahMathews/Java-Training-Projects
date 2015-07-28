@@ -1,5 +1,0 @@
-package mvcdemo.service.impl;
-
-public class LogoutServiceImpl {
-
-}

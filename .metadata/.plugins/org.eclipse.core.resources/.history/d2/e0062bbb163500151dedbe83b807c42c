@@ -1,0 +1,20 @@
+package com.envestnet.doit.handlers;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class SignupHandler {
+
+	HttpServletRequest request;
+
+	public SignupHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+
+	public boolean signup() {
+		
+		return false;
+	}
+	
+	
+}

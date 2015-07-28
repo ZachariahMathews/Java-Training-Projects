@@ -1,0 +1,6 @@
+package com.envestnet.doit.dto;
+
+public class LoadDTO {
+
+	
+}

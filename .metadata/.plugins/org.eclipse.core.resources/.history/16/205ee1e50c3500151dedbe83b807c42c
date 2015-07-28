@@ -1,0 +1,30 @@
+package com.envestnet.doit.dao.impl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.envestnet.doit.dao.RemoveDAO;
+import com.envestnet.doit.db.SQLConnUtil;
+
+public class RemoveDAOImpl implements RemoveDAO {
+
+	@Override
+	public void remove(int taskid) {
+		
+		SQLConnUtil sql=SQLConnUtil.getInstance();
+		Connection conn=sql.openConnection();
+		
+		try {
+			PreparedStatement ps=conn.prepareStatement("update TASK set task=?,priority=?,taskdate=?,tasktime=? where taskid=?");
+			ps.setInt(5, taskid);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		finally{
+			sql.closeConnection();
+		}
+	}
+
+}

@@ -1,0 +1,55 @@
+package com.envestnet.doit.handlers;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.envestnet.doit.beans.Task;
+
+public class EditHandler {
+
+	private HttpServletRequest request;
+
+	public EditHandler(HttpServletRequest request) {
+		
+		this.request = request;
+	}
+
+	public List<Task> edit(List<Task> tasks) {
+		
+		int i=0;
+		Task task=new Task();
+		task.setTaskid(Integer.parseInt(request.getParameter("taskid")));
+		task.setUserid(""+request.getSession().getAttribute("userid"));
+		task.setPriority(Integer.parseInt(request.getParameter("priority")));
+		task.setCategory(request.getParameter("category"));
+		task.setTask(request.getParameter("task"));
+		String[] date=request.getParameter("taskdate").split("-");
+		task.setTaskdatetime(LocalDateTime.of(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]),Integer.parseInt(request.getParameter("hour")), Integer.parseInt(request.getParameter("minute"))));
+		if(request.getParameter("meridian").equals("PM")){
+			task.setTaskdatetime(task.getTaskdatetime().plusHours(12));
+		}
+		
+		for(Task temp:tasks){
+			
+			if(temp.getTaskid()==task.getTaskid()){
+				temp=task;
+				break;
+			}
+			i++;
+		}
+		tasks.get(i).setCategory(task.getCategory());
+		tasks.get(i).setTask(task.getTask());
+		tasks.get(i).setPriority(task.getPriority());
+		tasks.get(i).setTaskdatetime(task.getTaskdatetime());
+		tasks.get(i).setTaskid(task.getTaskid());
+		tasks.get(i).setUserid(task.getUserid());
+		
+		
+		
+		return tasks;
+		
+	}
+	
+}

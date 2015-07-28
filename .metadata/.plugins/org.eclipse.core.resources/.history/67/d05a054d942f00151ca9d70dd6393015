@@ -1,7 +1,0 @@
-package mvcdemo.bean;
-
-public class Log {
-	
-	private String username;
-	private
-}

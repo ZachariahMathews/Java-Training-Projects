@@ -1,0 +1,13 @@
+package com.envestnet.doit.dao.impl;
+
+import com.envestnet.doit.dao.DoneDAO;
+
+public class DoneDAOImpl implements DoneDAO {
+
+	@Override
+	public void done(int taskid) {
+		
+		
+	}
+
+}

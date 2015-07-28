@@ -1,0 +1,5 @@
+package com.envestnet.doit.dao;
+
+public interface EditDAO {
+
+}

@@ -1,0 +1,16 @@
+package com.envestnet.doit.services.impl;
+
+import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.services.EditService;
+
+public class EditServiceImpl implements EditService {
+
+	@Override
+	public void edit(Task task) {
+		
+		EditDAO dao=new EditDAOImpl();
+		dao.edit(task);
+		
+	}
+
+}

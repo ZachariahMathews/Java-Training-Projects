@@ -1,0 +1,7 @@
+package com.envestnet.doit.dao.impl;
+
+import com.envestnet.doit.dao.SignupDAO;
+
+public class SignupDAOImpl implements SignupDAO {
+
+}

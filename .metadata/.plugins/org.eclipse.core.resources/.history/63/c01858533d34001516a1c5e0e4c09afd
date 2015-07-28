@@ -1,0 +1,15 @@
+package com.envestnet.doit.dto.impl;
+
+import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.dao.beans.TaskBean;
+import com.envestnet.doit.dto.UpdateDTO;
+
+public class UpdateDTOImpl implements UpdateDTO {
+
+	@Override
+	public TaskBean convertTO(Task task) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.envestnet.doit.dao;
+
+import com.envestnet.doit.beans.Task;
+
+public interface UpdateDAO {
+
+	public void update(Task t);
+
+}

@@ -1,0 +1,6 @@
+body{
+	text-align: center;
+}
+#datepicker1{
+	width:50%;
+}
