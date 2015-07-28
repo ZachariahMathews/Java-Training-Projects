@@ -13,10 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.envestnet.doit.beans.Task;
+import com.envestnet.doit.handlers.DoneHandler;
 import com.envestnet.doit.handlers.EditHandler;
 import com.envestnet.doit.handlers.LoadHandler;
 import com.envestnet.doit.handlers.LoginHandler;
 import com.envestnet.doit.handlers.RemoveHandler;
+import com.envestnet.doit.handlers.SignupHandler;
 import com.envestnet.doit.handlers.UpdateHandler;
 import com.envestnet.doit.util.SortListUtil;
 
@@ -127,6 +129,40 @@ public class Controller extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		}
+		else if("done".equals(handlerName)){
+			
+			DoneHandler dh=new DoneHandler(request);
+			getServletContext().setAttribute("tasks",(List<Task>) dh.done((List<Task>) getServletContext().getAttribute("tasks")));
+			try {
+				requestForward(request, response, "list-home.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+			
+		}
+		else if("signup".equals(handlerName)){
+			
+			SignupHandler sh=new SignupHandler(request);
+			if(sh.signup())
+				try {
+					
+					requestForward(request, response, "login.jsp");
+				} catch (IOException | ServletException e) {
+					
+					e.printStackTrace();
+				}
+			else{
+				try {
+					
+					request.setAttribute("signup", false);
+					requestForward(request, response, "signup.jsp");					
+				} catch (IOException | ServletException e) {
+					
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	

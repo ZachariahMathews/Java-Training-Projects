@@ -14,7 +14,14 @@ public class TaskBean implements Serializable{
 	private LocalTime tasktime;
 	private int priority;
 	private int taskgroup;
+	private char done;
 	
+	public char getDone() {
+		return done;
+	}
+	public void setDone(char done) {
+		this.done = done;
+	}
 	public int getTaskid() {
 		return taskid;
 	}

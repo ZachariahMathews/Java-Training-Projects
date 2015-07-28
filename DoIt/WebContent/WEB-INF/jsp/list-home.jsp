@@ -88,6 +88,7 @@
 				for(Task t:(List<Task>)getServletContext().getAttribute("tasks")){
 			t.setDisplayid(++i);
 			if(t.getUserid().equals(request.getSession().getAttribute("userid"))){
+				if(t.getDone()=='n'){
 		%>
 		<tr>
 			<td><%=t.getPriority()%></td>
@@ -95,11 +96,11 @@
 			<td><%=t.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%></td>
 			<td><%=t.getTaskdatetime().toLocalDate().toString()%></td>
 			<td><a href="Controller?handler=edit-link&index=<%=i%>">Edit</a></td>
-			<td><a href="Controller?handler=remove&index=<%=i%>">Edit</a></td>
-			<td><a href="Controller?handler=done&index=<%=i%>">Edit</a></td>
+			<td><a href="Controller?handler=remove&index=<%=i%>">Remove</a></td>
+			<td><a href="Controller?handler=done&index=<%=i%>">Done</a></td>
 		</tr>
 		<%
-			}}
+				}}}
 		%>
 	</table>
 	<table>

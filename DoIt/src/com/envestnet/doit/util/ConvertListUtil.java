@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +28,7 @@ public static List<TaskBean> convert(ResultSet rs){
 				t.setTaskdate(LocalDate.of(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2])));
 				t.setPriority(rs.getInt("priority"));
 				t.setTaskgroup(rs.getInt("taskgroup"));
+				t.setDone(rs.getString("done").charAt(0));
 				tasks.add(t);
 			}
 		} catch (SQLException e) {

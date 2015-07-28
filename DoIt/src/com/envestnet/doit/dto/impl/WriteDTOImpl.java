@@ -18,6 +18,7 @@ public class WriteDTOImpl implements WriteDTO {
 		taskbean.setTasktime(task.getTaskdatetime().toLocalTime());
 		taskbean.setTaskgroup(task.getTaskgroup());
 		taskbean.setUserid(task.getUserid());
+		taskbean.setDone(task.getDone());
 		return taskbean;
 	}
 

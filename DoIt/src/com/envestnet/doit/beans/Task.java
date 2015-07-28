@@ -12,7 +12,14 @@ public class Task {
 	private LocalDateTime taskdatetime;
 	private int priority;
 	private int taskgroup;
+	private char done;
 	
+	public char getDone() {
+		return done;
+	}
+	public void setDone(char done) {
+		this.done = done;
+	}
 	public Task() {
 		// TODO Auto-generated constructor stub
 	}

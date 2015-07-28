@@ -19,6 +19,7 @@
 		%>
 		<span> Login failed.</span>
 		<% }%>
-	</form>
+	</form><br>
+	<a href="Controller?handler=signup">Sign-up here</a>
 </body>
 </html>

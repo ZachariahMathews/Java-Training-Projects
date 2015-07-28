@@ -24,6 +24,7 @@ public class ReadDTOImpl implements ReadDTO {
 			task.setTaskdatetime(LocalDateTime.of(taskbean.getTaskdate(), taskbean.getTasktime()));
 			task.setTaskgroup(taskbean.getTaskgroup());
 			task.setUserid(taskbean.getUserid());
+			task.setDone(taskbean.getDone());
 			tasks.add(task);
 		}
 		return tasks;
