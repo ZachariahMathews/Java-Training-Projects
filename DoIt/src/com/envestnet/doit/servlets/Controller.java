@@ -1,6 +1,7 @@
 package com.envestnet.doit.servlets;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -15,6 +16,7 @@ import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.handlers.EditHandler;
 import com.envestnet.doit.handlers.LoadHandler;
 import com.envestnet.doit.handlers.LoginHandler;
+import com.envestnet.doit.handlers.RemoveHandler;
 import com.envestnet.doit.handlers.UpdateHandler;
 import com.envestnet.doit.util.SortListUtil;
 
@@ -89,7 +91,7 @@ public class Controller extends HttpServlet {
 			EditHandler eh=new EditHandler(request);
 			eh.edit();*/
 			try {
-				requestForward(request, response, "edit.jsp");
+				requestForward(request, response, "list-home.jsp");
 			} catch (IOException | ServletException e) {
 				
 				e.printStackTrace();
@@ -98,11 +100,28 @@ public class Controller extends HttpServlet {
 		}
 		else if("edit-page".equals(handlerName)){
 			
-			List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
 			EditHandler eh=new EditHandler(request);
-			eh.edit();
+			getServletContext().setAttribute("tasks",SortListUtil.sort(eh.edit((List<Task>) getServletContext().getAttribute("tasks"))));
+			/*for(Task t:(List<Task>) getServletContext().getAttribute("tasks")){
+				System.out.println(t.getTask());
+			}*/
 			try {
-				requestForward(request, response, "edit.jsp");
+				requestForward(request, response, "list-home.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+			
+		}
+		else if("remove".equals(handlerName)){
+			
+			RemoveHandler eh=new RemoveHandler(request);
+			getServletContext().setAttribute("tasks",SortListUtil.sort(eh.remove((List<Task>) getServletContext().getAttribute("tasks"))));
+			/*for(Task t:(List<Task>) getServletContext().getAttribute("tasks")){
+				System.out.println(t.getTask());
+			}*/
+			try {
+				requestForward(request, response, "list-home.jsp");
 			} catch (IOException | ServletException e) {
 				
 				e.printStackTrace();

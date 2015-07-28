@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.envestnet.doit.dao.UpdateDAO;
+import com.envestnet.doit.dao.AddDAO;
 import com.envestnet.doit.dao.beans.TaskBean;
 import com.envestnet.doit.db.SQLConnUtil;
 
-public class UpdateDAOImpl implements UpdateDAO {
+public class AddDAOImpl implements AddDAO {
 
 	@Override
 	public void update(TaskBean t) {
@@ -18,7 +18,7 @@ public class UpdateDAOImpl implements UpdateDAO {
 
 		try {
 			
-			PreparedStatement ps=conn.prepareStatement("insert into TASK(userid,category,task,taskdate,tasktime,priority,taskgroup) values(?,?,?,?,?,?,?)");
+			PreparedStatement ps=conn.prepareStatement("insert into TASK(userid,category,task,taskdate,tasktime,priority,taskgroup,done) values(?,?,?,?,?,?,?,'n')");
 			ps.setString(1, t.getUserid());
 			ps.setString(2, t.getCategory());
 			ps.setString(3, t.getTask());

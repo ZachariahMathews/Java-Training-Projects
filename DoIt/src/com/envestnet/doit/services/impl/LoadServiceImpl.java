@@ -6,8 +6,8 @@ import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.dao.LoadDAO;
 import com.envestnet.doit.dao.beans.TaskBean;
 import com.envestnet.doit.dao.impl.LoadDAOImpl;
-import com.envestnet.doit.dto.LoadDTO;
-import com.envestnet.doit.dto.impl.LoadDTOImpl;
+import com.envestnet.doit.dto.ReadDTO;
+import com.envestnet.doit.dto.impl.ReadDTOImpl;
 import com.envestnet.doit.services.LoadService;
 
 public class LoadServiceImpl implements LoadService {
@@ -17,7 +17,7 @@ public class LoadServiceImpl implements LoadService {
 		
 		LoadDAO dao=new LoadDAOImpl();
 		List<TaskBean> taskbeans= dao.load();
-		LoadDTO dto=new LoadDTOImpl();
+		ReadDTO dto=new ReadDTOImpl();
 		return dto.convertFrom(taskbeans);
 	}
 

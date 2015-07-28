@@ -6,9 +6,9 @@ import java.util.List;
 
 import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.dao.beans.TaskBean;
-import com.envestnet.doit.dto.LoadDTO;
+import com.envestnet.doit.dto.ReadDTO;
 
-public class LoadDTOImpl implements LoadDTO {
+public class ReadDTOImpl implements ReadDTO {
 
 	@Override
 	public List<Task> convertFrom(List<TaskBean> taskbeans) {

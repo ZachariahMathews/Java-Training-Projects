@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 import javax.servlet.http.HttpServletRequest;
 
 import com.envestnet.doit.beans.Task;
-import com.envestnet.doit.services.UpdateService;
-import com.envestnet.doit.services.impl.UpdateServiceImpl;
+import com.envestnet.doit.services.AddService;
+import com.envestnet.doit.services.impl.AddServiceImpl;
 
 public class UpdateHandler {
 
@@ -32,7 +32,7 @@ public class UpdateHandler {
 			task.setTaskdatetime(task.getTaskdatetime().plusHours(12));
 		}
 		
-		UpdateService us=new UpdateServiceImpl();
+		AddService us=new AddServiceImpl();
 		us.update(task);
 		return task;
 		

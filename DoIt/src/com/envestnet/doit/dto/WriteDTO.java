@@ -1,13 +1,10 @@
 package com.envestnet.doit.dto;
 
-import java.util.List;
-
 import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.dao.beans.TaskBean;
 
-public interface LoadDTO {
+public interface WriteDTO {
 
-	public List<Task> convertFrom(List<TaskBean> taskbeans);
+	TaskBean convertTO(Task task);
 
-	
 }

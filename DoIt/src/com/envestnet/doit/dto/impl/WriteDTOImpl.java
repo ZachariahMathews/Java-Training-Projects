@@ -2,9 +2,9 @@ package com.envestnet.doit.dto.impl;
 
 import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.dao.beans.TaskBean;
-import com.envestnet.doit.dto.UpdateDTO;
+import com.envestnet.doit.dto.WriteDTO;
 
-public class UpdateDTOImpl implements UpdateDTO {
+public class WriteDTOImpl implements WriteDTO {
 
 	@Override
 	public TaskBean convertTO(Task task) {
