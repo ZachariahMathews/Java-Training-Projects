@@ -19,7 +19,7 @@ import com.envestnet.doit.handlers.LoadHandler;
 import com.envestnet.doit.handlers.LoginHandler;
 import com.envestnet.doit.handlers.RemoveHandler;
 import com.envestnet.doit.handlers.SignupHandler;
-import com.envestnet.doit.handlers.UpdateHandler;
+import com.envestnet.doit.handlers.AddHandler;
 import com.envestnet.doit.util.SortListUtil;
 
 /**
@@ -76,9 +76,16 @@ public class Controller extends HttpServlet {
 		else if("list-add".equals(handlerName)){
 			
 			List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
-			UpdateHandler uh=new UpdateHandler(request);
+			System.out.println("Before: "+tasks.size());
+			AddHandler uh=new AddHandler(request);
 			tasks.add(uh.update());
+			System.out.println("After-1: "+tasks.size());
+			/*for(Task t:tasks){
+				System.out.println(t.getTask());
+			}*/
+			
 			getServletContext().setAttribute("tasks", SortListUtil.sort(tasks));
+			System.out.println("After:2 "+((List<Task>)getServletContext().getAttribute("tasks")).size());
 			try {
 				
 				requestForward(request, response, "list-home.jsp");					
@@ -142,7 +149,16 @@ public class Controller extends HttpServlet {
 			}
 			
 		}
-		else if("signup".equals(handlerName)){
+		else if("signup-link".equals(handlerName)){
+			
+			try {
+				requestForward(request, response, "signup.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		else if("signup-page".equals(handlerName)){
 			
 			SignupHandler sh=new SignupHandler(request);
 			if(sh.signup())

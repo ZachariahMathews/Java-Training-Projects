@@ -8,11 +8,11 @@ import com.envestnet.doit.beans.Task;
 import com.envestnet.doit.services.AddService;
 import com.envestnet.doit.services.impl.AddServiceImpl;
 
-public class UpdateHandler {
+public class AddHandler {
 
 	HttpServletRequest request;
 
-	public UpdateHandler(HttpServletRequest request) {
+	public AddHandler(HttpServletRequest request) {
 		
 		this.request = request;
 	}
@@ -25,9 +25,8 @@ public class UpdateHandler {
 		task.setCategory(request.getParameter("category"));
 		task.setTask(request.getParameter("task"));
 		String[] date=request.getParameter("taskdate").split("-");
-		//task.setTasktime();
+		task.setDone('n');
 		task.setTaskdatetime(LocalDateTime.of(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]),Integer.parseInt(request.getParameter("hour")), Integer.parseInt(request.getParameter("minute"))));
-		//t.setTaskgroup(Integer.parseInt(request.getParameter("taskgroup")));
 		if(request.getParameter("meridian").equals("PM")){
 			task.setTaskdatetime(task.getTaskdatetime().plusHours(12));
 		}

@@ -75,6 +75,8 @@
 	%>
 	<br>
 	<hr>
+	<h1><%=request.getSession().getAttribute("userid") %></h1>
+	<hr>
 	<table width="100%">
 		<tr>
 			<td>Priority</td>
@@ -85,9 +87,12 @@
 		</tr>
 		<%
 			int i=0;
+		System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
 				for(Task t:(List<Task>)getServletContext().getAttribute("tasks")){
+					
 			t.setDisplayid(++i);
 			if(t.getUserid().equals(request.getSession().getAttribute("userid"))){
+				System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
 				if(t.getDone()=='n'){
 		%>
 		<tr>
