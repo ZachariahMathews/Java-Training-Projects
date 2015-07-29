@@ -36,7 +36,7 @@
 					if (request.getAttribute("signup") == null) {
 					} else if (!(Boolean) request.getAttribute("signup")) {
 				%>
-				<span class="registration"> Userid already present.</span>
+				<div class="alert alert-danger invalid " role="alert">Signup failed. UserID already exists.</div>
 				<%
 					}
 				%>

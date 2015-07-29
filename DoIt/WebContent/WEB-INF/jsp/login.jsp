@@ -37,7 +37,7 @@
 					if (request.getAttribute("login") == null) {
 					} else if (!(Boolean) request.getAttribute("login")) {
 				%>
-				<span> Login failed.</span>
+				<div class="alert alert-danger invalid " role="alert">Login failed. Invalid UserID or Password.</div>
 				<%
 					}
 				%>
