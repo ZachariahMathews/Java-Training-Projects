@@ -180,6 +180,15 @@ public class Controller extends HttpServlet {
 				}
 			}
 		}
+		else if("logout".equals(handlerName)){
+			
+			try {
+				requestForward(request, response, "login.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	private void requestForward(HttpServletRequest request, HttpServletResponse response,String dest) throws IOException, ServletException {

@@ -8,7 +8,7 @@
 <link href="css/style.css" rel="stylesheet" />
 <link href="css/bootstrap.css" rel="stylesheet">
 </head>
-<body class="login-body">
+<body class="login-body" style="background-image: url('img/bg.jpg');">
 	<div id="login-container">
 		<!-- <h1>Login Form</h1> -->
 		<form class="form-signin" action="Controller">
