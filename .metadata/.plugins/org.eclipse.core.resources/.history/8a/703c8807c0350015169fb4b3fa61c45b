@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>DoIt - Login</title>
+<link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+	<h1>Login Form</h1>
+	<form action="Controller">
+		User ID : <input type="text" name="userid"><br> 
+		Password : <input type="password" name="password"><br> 
+		<input type="hidden" name="handler" value="login"> 
+		<input type="submit" value="Submit">
+		<%if(request.getAttribute("login")==null){}
+		else if(!(Boolean)request.getAttribute("login")){
+		%>
+		<span> Login failed.</span>
+		<% }%>
+	</form><br>
+	<a href="Controller?handler=signup-link">Sign-up here</a>
+	
+	
+	
+	<!-- Modal -->
+          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title">Forgot Password ?</h4>
+                      </div>
+                      <div class="modal-body">
+                          <p>Enter your e-mail address below to reset your password.</p>
+                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+                      </div>
+                      <div class="modal-footer">
+                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                          <button class="btn btn-success" type="button">Submit</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- modal -->
+	<script src="js/jquery.js"></script>
+    <script src="bs3/js/bootstrap.min.js"></script>
+</body>
+</html>

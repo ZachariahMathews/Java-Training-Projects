@@ -1,0 +1,13 @@
+#login-container{
+	text-align: center;
+	vertical-align: middle;
+}
+#datepicker1{
+	width:200px;
+}
+.login-body{
+	background:#32323A;
+    background-size:cover;
+    width:100%;
+    height:100%;
+}

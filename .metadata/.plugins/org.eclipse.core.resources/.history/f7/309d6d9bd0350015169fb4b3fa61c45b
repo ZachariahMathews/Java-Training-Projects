@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>DoIt - Login</title>
+<link href="css/style.css" rel="stylesheet" />
+</head>
+<body class="login-body">
+	<div id="login-container">
+		<!-- <h1>Login Form</h1> -->
+		<form class="form-signin" action="Controller">
+			<h2 class="form-signin-heading">Login</h2>
+			<div class="login-wrap">
+			<table>
+			<tr>
+				<td>User ID : </td>
+				<td><input type="text" class="form-control" name="userid" auofocus></td>
+			</tr>
+			<tr>
+				<td>Password : </td>
+				<td><input type="password" class="form-control" name="password"></td>
+			</tr>
+			<tr>
+				<td><input type="hidden" name="handler" value="login"> </td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>
+			
+			
+			<%
+				if (request.getAttribute("login") == null) {
+				} else if (!(Boolean) request.getAttribute("login")) {
+			%>
+			<span> Login failed.</span>
+			<%
+				}
+			%>
+			</table>
+			</div>
+		</form>
+		<br> <a href="Controller?handler=signup-link">Sign-up here</a>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="bs3/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -56,26 +56,56 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<head>\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
       out.write("<title>DoIt - Login</title>\r\n");
-      out.write("<link href=\"css/style.css\" rel=\"stylesheet\"/>\r\n");
+      out.write("<link href=\"css/style.css\" rel=\"stylesheet\" />\r\n");
+      out.write("<link href=\"css/bootstrap.css\" rel=\"stylesheet\">\r\n");
       out.write("</head>\r\n");
-      out.write("<body>\r\n");
-      out.write("\t<h1>Login Form</h1>\r\n");
-      out.write("\t<form action=\"Controller\">\r\n");
-      out.write("\t\tUser ID : <input type=\"text\" name=\"userid\"><br> \r\n");
-      out.write("\t\tPassword : <input type=\"password\" name=\"password\"><br> \r\n");
-      out.write("\t\t<input type=\"hidden\" name=\"handler\" value=\"login\"> \r\n");
-      out.write("\t\t<input type=\"submit\" value=\"Submit\">\r\n");
-      out.write("\t\t");
-if(request.getAttribute("login")==null){}
-		else if(!(Boolean)request.getAttribute("login")){
-		
+      out.write("<body class=\"login-body\" style=\"background-image: url('img/bg.jpg');\">\r\n");
+      out.write("\t<div id=\"login-container\">\r\n");
+      out.write("\t\t<!-- <h1>Login Form</h1> -->\r\n");
+      out.write("\t\t<form class=\"form-signin\" action=\"Controller\">\r\n");
+      out.write("\t\t\t<h2 class=\"form-signin-heading\">DoIt!</h2>\r\n");
+      out.write("\t\t\t<div class=\"login-wrap\">\r\n");
+      out.write("\t\t\t\t<table>\r\n");
+      out.write("\t\t\t\t\t<tr>\r\n");
+      out.write("\t\t\t\t\t\t<td style=\"margin-right: 5px;\">User ID &nbsp;</td>\r\n");
+      out.write("\t\t\t\t\t\t<td><input type=\"text\" class=\"form-control\" name=\"userid\"\r\n");
+      out.write("\t\t\t\t\t\t\tautofocus></td>\r\n");
+      out.write("\t\t\t\t\t</tr>\r\n");
+      out.write("\t\t\t\t\t<tr>\r\n");
+      out.write("\t\t\t\t\t\t<td style=\"margin-right: 5px;\">Password &nbsp;</td>\r\n");
+      out.write("\t\t\t\t\t\t<td><input type=\"password\" class=\"form-control\"\r\n");
+      out.write("\t\t\t\t\t\t\tname=\"password\"></td>\r\n");
+      out.write("\t\t\t\t\t</tr>\r\n");
+      out.write("\t\t\t\t\t<tr>\r\n");
+      out.write("\t\t\t\t\t\t<td><input type=\"hidden\" name=\"handler\" value=\"login\">\r\n");
+      out.write("\t\t\t\t\t\t</td>\r\n");
+      out.write("\t\t\t\t\t\t<td></td>\r\n");
+      out.write("\t\t\t\t\t</tr>\r\n");
+      out.write("\t\t\t\t</table>\r\n");
+      out.write("\t\t\t\t<input type=\"submit\" value=\"Login\"\r\n");
+      out.write("\t\t\t\t\tclass=\"btn btn-lg btn-login btn-block\">\r\n");
+      out.write("\t\t\t\t");
+
+					if (request.getAttribute("login") == null) {
+					} else if (!(Boolean) request.getAttribute("login")) {
+				
       out.write("\r\n");
-      out.write("\t\t<span> Login failed.</span>\r\n");
-      out.write("\t\t");
- }
+      out.write("\t\t\t\t<div class=\"alert alert-danger invalid \" role=\"alert\">Login failed. Invalid UserID or Password.</div>\r\n");
+      out.write("\t\t\t\t");
+
+					}
+				
       out.write("\r\n");
-      out.write("\t</form><br>\r\n");
-      out.write("\t<a href=\"Controller?handler=signup-link\">Sign-up here</a>\r\n");
+      out.write("\t\t\t\t<div class=\"registration\">\r\n");
+      out.write("\t\t\t\t\tDon't have an account yet? <a class=\"\"\r\n");
+      out.write("\t\t\t\t\t\thref=\"Controller?handler=signup-link\"> Create an account </a>\r\n");
+      out.write("\t\t\t\t</div>\r\n");
+      out.write("\t\t\t</div>\r\n");
+      out.write("\t\t</form>\r\n");
+      out.write("\r\n");
+      out.write("\t</div>\r\n");
+      out.write("\t<script src=\"js/jquery.js\"></script>\r\n");
+      out.write("\t<script src=\"bs3/js/bootstrap.min.js\"></script>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
