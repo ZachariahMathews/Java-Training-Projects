@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.util.List"%>
 <%@page import="com.envestnet.doit.beans.Task"%>
@@ -8,25 +9,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>DoIt - Home</title>
-<link rel="stylesheet" href="css/bootstrap-datepicker3.css" />
+<link rel="stylesheet" href="css/bootstrap-datepicker3.min.css" />
 <link rel="stylesheet" href="css/bootstrap.css" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/bootstrap-timepicker.css" />
+<link rel="stylesheet" href="css/bootstrap-timepicker.min.css" />
 </head>
 <body onload="datepick()">
 	<h1>Home</h1>
 	<%
 		if(request.getParameter("handler").equals("edit-link")){
-			
-		List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
-		Task task=null;
-		for(Task temp:tasks) {
-			if(temp.getDisplayid()==Integer.parseInt(request.getParameter("index"))){
 		
-		task=temp;
-		break;
-			}
+			List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
+			Task task=null;
+			for(Task temp:tasks) {
+		if(temp.getDisplayid()==Integer.parseInt(request.getParameter("index"))){
+			
+			task=temp;
+			break;
 		}
+			}
 	%>
 	<form action="Controller">
 		<input type="hidden" name="taskid" value="<%=task.getTaskid()%>">
@@ -43,15 +44,15 @@
 		Time:
 		<div class="input-append bootstrap-timepicker">
 			<input id="timepicker1" type="text" class="input-small"
-				value="<%=task.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%>"> <span
-				class="add-on"><i class="icon-time"></i></span>
+				value="<%=task.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%>">
+			<span class="add-on"><i class="icon-time"></i></span>
 		</div>
 		<input type="hidden" name="handler" value="edit-page"> <input
 			type="submit" value="Edit"> <br>
 	</form>
 	<%
 		}
-		else{
+			else{
 	%>
 	<form action="Controller">
 		Enter the task : <input type="text" name="task"> <br>
@@ -75,7 +76,7 @@
 	%>
 	<br>
 	<hr>
-	<h1><%=request.getSession().getAttribute("userid") %></h1>
+	<h1><%=request.getSession().getAttribute("userid")%></h1>
 	<hr>
 	<table width="100%">
 		<tr>
@@ -87,13 +88,13 @@
 		</tr>
 		<%
 			int i=0;
-		System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
+				//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
 				for(Task t:(List<Task>)getServletContext().getAttribute("tasks")){
 					
 			t.setDisplayid(++i);
 			if(t.getUserid().equals(request.getSession().getAttribute("userid"))){
-				System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
-				if(t.getDone()=='n'){
+				//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
+				if(t.getDone()=='n'&&t.getTaskdatetime().isAfter(LocalDateTime.now())){
 		%>
 		<tr>
 			<td><%=t.getPriority()%></td>
@@ -105,7 +106,7 @@
 			<td><a href="Controller?handler=done&index=<%=i%>">Done</a></td>
 		</tr>
 		<%
-				}}}
+			}}}
 		%>
 	</table>
 	<table>
@@ -125,7 +126,7 @@
 	</script>
 	<script src="js/jquery-2.1.4.js"></script>
 	<script src="js/bootstrap-datepicker.min.js"></script>
-	<script src="js/bootstrap-timepicker.js"></script>
+	<script src="js/bootstrap-timepicker.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 </body>
 </html>

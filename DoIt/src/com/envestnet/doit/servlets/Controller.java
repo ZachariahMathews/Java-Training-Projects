@@ -76,16 +76,16 @@ public class Controller extends HttpServlet {
 		else if("list-add".equals(handlerName)){
 			
 			List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
-			System.out.println("Before: "+tasks.size());
+			//System.out.println("Before: "+tasks.size());
 			AddHandler uh=new AddHandler(request);
 			tasks.add(uh.update());
-			System.out.println("After-1: "+tasks.size());
+			//System.out.println("After-1: "+tasks.size());
 			/*for(Task t:tasks){
 				System.out.println(t.getTask());
 			}*/
 			
 			getServletContext().setAttribute("tasks", SortListUtil.sort(tasks));
-			System.out.println("After:2 "+((List<Task>)getServletContext().getAttribute("tasks")).size());
+			//System.out.println("After:2 "+((List<Task>)getServletContext().getAttribute("tasks")).size());
 			try {
 				
 				requestForward(request, response, "list-home.jsp");					
