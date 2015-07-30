@@ -22,15 +22,8 @@ public class DoneHandler {
 
 	public List<Task> done(List<Task> tasks) {
 		
-		int taskid = 0, dispid = 0;
-		for (Task task : tasks) {
-
-			++dispid;
-			if (dispid == Integer.parseInt(request.getParameter("index"))) {
-
-				taskid = task.getTaskid();
-			}
-		}
+		int taskid = Integer.parseInt(request.getParameter("taskid"));
+		
 		ListIterator<Task> iterator = tasks.listIterator();
 		while (iterator.hasNext()) {
 			

@@ -189,6 +189,50 @@ public class Controller extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if("pending".equals(handlerName)){
+			
+			request.getSession().setAttribute("curr-page", "pending");
+			try {
+				requestForward(request, response, "list-home.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+			
+		}	
+		else if("personal".equals(handlerName)){
+			
+			request.getSession().setAttribute("curr-page",null);
+			try {
+				requestForward(request, response, "list-home.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+			
+		}	
+		else if("work".equals(handlerName)){
+			
+			request.getSession().setAttribute("curr-page","work");
+			try {
+				requestForward(request, response, "list-home.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+			
+		}	
+		else if("archive".equals(handlerName)){
+			
+			request.getSession().setAttribute("curr-page","archive");
+			try {
+				requestForward(request, response, "list-home.jsp");
+			} catch (IOException | ServletException e) {
+				
+				e.printStackTrace();
+			}
+			
+		}	
 	}
 	
 	private void requestForward(HttpServletRequest request, HttpServletResponse response,String dest) throws IOException, ServletException {

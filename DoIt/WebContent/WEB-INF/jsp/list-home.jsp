@@ -24,9 +24,7 @@
 			<!-- <img src="images/logo.png" alt=""> -->
 			<p class="logo">DoIt!</p>
 			<!-- </a> -->
-			<div class="sidebar-toggle-box">
-				<span class="glyphicon glyphicon-menu-hamburger"></span>
-			</div>
+
 		</div>
 		<!--logo end-->
 		<div class="top-nav clearfix">
@@ -49,101 +47,40 @@
 			<!--search & user info end-->
 		</div>
 		</header>
-		<aside>
-		<div id="sidebar" class="nav-collapse">
-			<!-- sidebar menu start-->
-			<div class="leftside-navigation">
-				<ul class="sidebar-menu" id="nav-accordion">
-					<li><a href="index.html"> <i class="fa fa-dashboard"></i>
-							<span>Dashboard</span>
-					</a></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-laptop"></i> <span>Layouts</span>
-					</a>
-						<ul class="sub">
-							<li><a href="boxed_page.html">Boxed Page</a></li>
-							<li><a href="horizontal_menu.html">Horizontal Menu</a></li>
-							<li><a href="language_switch.html">Language Switch Bar</a></li>
-						</ul></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-book"></i> <span>UI Elements</span>
-					</a>
-						<ul class="sub">
-							<li><a href="general.html">General</a></li>
-							<li><a href="buttons.html">Buttons</a></li>
-							<li><a href="typography.html">Typography</a></li>
-							<li><a href="widget.html">Widget</a></li>
-							<li><a href="slider.html">Slider</a></li>
-							<li><a href="tree_view.html">Tree View</a></li>
-							<li><a href="nestable.html">Nestable</a></li>
-							<li><a href="grids.html">Grids</a></li>
-							<li><a href="calendar.html">Calender</a></li>
-							<li><a href="draggable_portlet.html">Draggable Portlet</a></li>
-						</ul></li>
-					<li><a href="fontawesome.html"> <i class="fa fa-bullhorn"></i>
-							<span>Fontawesome </span>
-					</a></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-th"></i> <span>Data Tables</span>
-					</a>
-						<ul class="sub">
-							<li><a href="basic_table.html">Basic Table</a></li>
-							<li><a href="responsive_table.html">Responsive Table</a></li>
-							<li><a href="dynamic_table.html">Dynamic Table</a></li>
-							<li><a href="editable_table.html">Editable Table</a></li>
-						</ul></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-tasks"></i> <span>Form Components</span>
-					</a>
-						<ul class="sub">
-							<li><a href="form_component.html">Form Elements</a></li>
-							<li><a href="advanced_form.html">Advanced Components</a></li>
-							<li><a href="form_wizard.html">Form Wizard</a></li>
-							<li><a href="form_validation.html">Form Validation</a></li>
-							<li><a href="file_upload.html">Muliple File Upload</a></li>
+		<div id="wrapper">
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
 
-							<li><a href="dropzone.html">Dropzone</a></li>
-							<li><a href="inline_editor.html">Inline Editor</a></li>
-
-						</ul></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-envelope"></i> <span>Mail </span>
-					</a>
-						<ul class="sub">
-							<li><a href="mail.html">Inbox</a></li>
-							<li><a href="mail_compose.html">Compose Mail</a></li>
-							<li><a href="mail_view.html">View Mail</a></li>
-						</ul></li>
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class=" fa fa-bar-chart-o"></i> <span>Charts</span>
-					</a>
-						<ul class="sub">
-							<li><a href="morris.html">Morris</a></li>
-							<li><a href="chartjs.html">Chartjs</a></li>
-							<li><a href="flot_chart.html">Flot Charts</a></li>
-							<li><a href="c3_chart.html">C3 Chart</a></li>
-						</ul></li>
+					<li><a href="Controller?handler=personal"><span
+							class="glyphicon glyphicon-user" aria-hidden="true"></span>Personal</a>
+					</li>
+					<li><a href="Controller?handler=work"> <span
+							class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>Work
+					</a></li>
+					<li><a href="Controller?handler=pending"><span
+							class="glyphicon glyphicon-alert" aria-hidden="true"></span>Pending</a>
+					</li>
+					<li><a href="Controller?handler=archive"><span
+							class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Archive</a>
+					</li>
 				</ul>
 			</div>
-			<!-- sidebar menu end-->
-		</div>
-		</aside>
 
-		<section id="main-content"> <section class="wrapper">
-		<!-- page start--> <%
- 	if(request.getParameter("handler").equals("edit-link")){
-     		
-     	List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
-     	Task task=null;
-     	for(Task temp:tasks) {
-     		if(temp.getTaskid()==Integer.parseInt(request.getParameter("taskid"))){
-     	
-     	task=temp;
-     	break;
-     		}
-     	}
- %>
-		<form action="Controller">
+			<section id="main-content"> <section class="wrapper"> <%
+ 	if (request.getParameter("handler").equals("edit-link")) {
+
+ 		List<Task> tasks = (List<Task>) getServletContext()
+ 				.getAttribute("tasks");
+ 		Task task = null;
+ 		for (Task temp : tasks) {
+ 			if (temp.getTaskid() == Integer.parseInt(request
+ 					.getParameter("taskid"))) {
+
+ 				task = temp;
+ 				break;
+ 			}
+ 		}
+ %> <%-- <form action="Controller">
 			<input type="hidden" name="taskid" value="<%=task.getTaskid()%>">
 			Enter the task : <input type="text" name="task"
 				value="<%=task.getTask()%>"> <br> Priority : <select
@@ -161,56 +98,269 @@
 			</div>
 			<input type="hidden" name="handler" value="edit-page"> <input
 				type="submit" value="Edit"> <br>
-		</form>
-		<%
-			}
-			else{
-		%>
-		<!-- <div class="col-lg-12"> -->
+		</form> --%>
+
+
+
 			<form action="Controller" class="form-add">
 				<div class="add-wrap">
-				<div class="row">
-				<div class="col-lg-6 col-md-12 col-sm-12">
-					<label class=>Enter the task</label><input type="text" name="task"	class="form-control task-input"> 
-				</div>
-				<div class="col-lg-1 col-md-3 col-sm-2">
-					<label>Priority</label>
-					<select	name="priority" class="form-control select" id="priority-picker">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select> 
-				</div>
-				<div class="col-lg-2 col-md-3 col-sm-5">
-					<label>Date</label><input type="text" id="datepicker1" name="taskdate" class="form-control"> 
-				</div>
-				<div class="col-lg-2 col-md-3 col-sm-5">
-					<label> Time</label>
-					<div class="input-append bootstrap-timepicker">
-						<input id="timepicker1" type="text"
-							class="input-small form-control"> <span class="add-on"><i
-							class="icon-time"></i></span>
+					<div class="row">
+						<div class="col-lg-4 col-md-12 col-sm-12">
+							<label class=>Enter the task</label><input type="text"
+								name="task" value="<%=task.getTask()%>"
+								class="form-control task-input">
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<label>Category</label> <select name="category"
+								class="form-control">
+								<%
+									if (task.getCategory().equals("personal")) {
+								%>
+								<option value="personal" selected="selected">Personal</option>
+								<%
+									} else {
+								%>
+								<option value="personal">Personal</option>
+								<%
+									}
+																												if (task.getCategory().equals("work")) {
+								%>
+								<option value="work" selected="selected">Work</option>
+								<%
+									} else {
+								%>
+								<option value="work">Work</option>
+								<%
+									}
+								%>
+							</select>
+						</div>
+						<div class="col-lg-1 col-md-6 col-sm-6">
+							<label>Priority</label> <select name="priority"
+								class="form-control" id="priority-picker">
+								<%
+									if (task.getPriority() == 1) {
+								%>
+								<option value="1" selected="selected">1</option>
+								<%
+									} else {
+								%>
+								<option value="1">1</option>
+								<%
+									}
+										if (task.getPriority() == 2) {
+								%>
+								<option value="2" selected="selected">2</option>
+								<%
+									} else {
+								%>
+								<option value="2">2</option>
+								<%
+									}
+										if (task.getPriority() == 3) {
+								%>
+								<option value="3" selected="selected">3</option>
+								<%
+									} else {
+								%>
+								<option value="3">3</option>
+								<%
+									}
+										if (task.getPriority() == 4) {
+								%>
+								<option value="4" selected="selected">4</option>
+								<%
+									} else {
+								%>
+								<option value="4">4</option>
+								<%
+									}
+										if (task.getPriority() == 5) {
+								%>
+								<option value="5" selected="selected">5</option>
+								<%
+									} else {
+								%>
+								<option value="5">5</option>
+								<%
+									}
+								%>
+							</select>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<label>Date</label><input type="text" id="datepicker1"
+								name="taskdate" class="form-control"
+								value="<%=task.getTaskdatetime().toLocalDate()%>">
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<label> Time</label>
+							<div class="input-append bootstrap-timepicker">
+								<input id="timepicker1" type="text"
+									class="input-small form-control"
+									value="<%=task.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%>">
+								<span class="add-on"><i class="icon-time"></i></span>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-12 col-sm-12">
+						<input type="hidden" name="taskid" value="<%=task.getTaskid()%>">
+							<input type="hidden" name="handler" value="edit-page"> <input
+								type="submit" value="Edit" class="btn btn-add btn-lg">
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-1 col-md-3 col-sm-12">
-					<input type="hidden" name="handler" value="list-add"> 
-					<input type="submit" value="Add" class="btn btn-add btn-lg">
-				</div>
-				</div>
+			</form>
+			<%
+				}
+						else{
+			%> 
+
+			<form action="Controller" class="form-add">
+				<div class="add-wrap">
+					<div class="row">
+						<div class="col-lg-4 col-md-12 col-sm-12">
+							<label class=>Enter the task</label><input type="text"
+								name="task" class="form-control task-input">
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<label>Category</label> <select name="category"
+								class="form-control">
+								<option value="personal">Personal</option>
+								<option value="work">Work</option>
+							</select>
+						</div>
+						<div class="col-lg-1 col-md-6 col-sm-6">
+							<label>Priority</label> <select name="priority"
+								class="form-control" id="priority-picker">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<label>Date</label><input type="text" id="datepicker1"
+								name="taskdate" class="form-control">
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<label> Time</label>
+							<div class="input-append bootstrap-timepicker">
+								<input id="timepicker1" type="text"
+									class="input-small form-control"> <span class="add-on"><i
+									class="icon-time"></i></span>
+							</div>
+						</div>
+						<div class="col-lg-1 col-md-12 col-sm-12">
+							<input type="hidden" name="handler" value="list-add"> <input
+								type="submit" value="Add" class="btn btn-add btn-lg">
+						</div>
+					</div>
 				</div>
 			</form>
-		<!-- </div> -->
-		<%
-			}
-		%> <br>
-		<hr>
-		<h1><%=request.getSession().getAttribute("userid")%></h1>
-		<hr>
+			 <%
+ 	}
+ %> <br>
+			<%
+				if(request.getSession().getAttribute("curr-page")==null){
+			%>
+			<h1>Today</h1>
 
-		<table width="100%" class="table">
-			<!-- <tr class="table-row">
+
+			<table width="100%" class="table">
+				<%
+					int i = 0;
+											//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
+											for (Task t : (List<Task>) getServletContext()
+													.getAttribute("tasks")) {
+
+												t.setDisplayid(++i);
+												if (t.getUserid().equals(
+														request.getSession().getAttribute("userid"))) {
+													//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
+													if (t.getDone() == 'n'
+															&& t.getTaskdatetime().isAfter(LocalDateTime.now())) {
+				%>
+				<tr class="table-row">
+					<td><%=t.getPriority()%></td>
+					<td><%=t.getTask()%></td>
+					<td><%=t.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%></td>
+					<%
+						if(t.getTaskdatetime().toLocalDate().toString().equals(LocalDateTime.now().toLocalDate().toString())) {
+					%>
+					<td>Today</td>
+					<%
+						}else{
+					%>
+					<td><%=t.getTaskdatetime().toLocalDate().toString()%></td>
+					<%
+						}
+					%>
+					<td><a
+						href="Controller?handler=edit-link&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-edit icon"></span></a></td>
+					<td><a
+						href="Controller?handler=remove&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-trash icon"></span></a></td>
+					<td><a
+						href="Controller?handler=done&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-ok icon"></span></a></td>
+				</tr>
+				<%
+					}}}
+				%>
+			</table>
+
+			<%
+				}
+							else if(request.getSession().getAttribute("curr-page").equals("archive")){
+			%>
+
+			<h1>Archive</h1>
+
+
+			<table width="100%" class="table">
+				<%
+					int i = 0;
+											//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
+											for (Task t : (List<Task>) getServletContext()
+													.getAttribute("tasks")) {
+
+												t.setDisplayid(++i);
+												if (t.getUserid().equals(
+														request.getSession().getAttribute("userid"))) {
+													//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
+													if (t.getDone() == 'y') {
+				%>
+				<tr class="table-row">
+					<td><%=t.getPriority()%></td>
+					<td><%=t.getTask()%></td>
+					<td><%=t.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%></td>
+					<%
+						if(t.getTaskdatetime().toLocalDate().toString().equals(LocalDateTime.now().toLocalDate().toString())) {
+					%>
+					<td>Today</td>
+					<%
+						}else{
+					%>
+					<td><%=t.getTaskdatetime().toLocalDate().toString()%></td>
+					<%
+						}
+					%>
+				</tr>
+				<%
+					}}}
+				%>
+			</table>
+
+			<%
+				}
+							else{
+			%>
+			<h1>Pending</h1>
+
+
+			<table width="100%" class="table">
+				<!-- <tr class="table-row">
 				<td>Priority</td>
 				<td>Task Description</td>
 				<td>Task Time</td>
@@ -219,45 +369,55 @@
 				<td>Remove</td>
 				<td>Mark Done</td>
 			</tr> -->
-			<%
-				int i = 0;
-				//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
-				for (Task t : (List<Task>) getServletContext()
-						.getAttribute("tasks")) {
+				<%
+					int i = 0;
+											//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
+											for (Task t : (List<Task>) getServletContext()
+													.getAttribute("tasks")) {
 
-					t.setDisplayid(++i);
-					if (t.getUserid().equals(
-							request.getSession().getAttribute("userid"))) {
-						//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
-						if (t.getDone() == 'n'
-								&& t.getTaskdatetime().isAfter(LocalDateTime.now())) {
-			%>
-			<tr class="table-row">
-				<td><%=t.getPriority()%></td>
-				<td><%=t.getTask()%></td>
-				<td><%=t.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%></td>
-				<%if(t.getTaskdatetime().toLocalDate().toString().equals(LocalDateTime.now().toLocalDate().toString())) {
+												if (t.getUserid().equals(
+														request.getSession().getAttribute("userid"))) {
+													//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
+													if (t.getDone() == 'n'
+															&& t.getTaskdatetime().isBefore(LocalDateTime.now())) {
 				%>
-				<td>Today</td>
-				<%}else{ %>
-				<td><%=t.getTaskdatetime().toLocalDate().toString()%></td>
-				<%} %>
-				<td><a href="Controller?handler=edit-link&taskid=<%=t.getTaskid()%>"><span
-						class="glyphicon glyphicon-edit icon"></span></a></td>
-				<td><a href="Controller?handler=remove&taskid=<%=t.getTaskid()%>"><span
-						class="glyphicon glyphicon-trash icon"></span></a></td>
-				<td><a href="Controller?handler=done&taskid=<%=t.getTaskid()%>"><span
-						class="glyphicon glyphicon-ok icon"></span></a></td>
-			</tr>
+				<tr class="table-row">
+					<td><%=t.getPriority()%></td>
+					<td><%=t.getTask()%></td>
+					<td><%=t.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%></td>
+					<%
+						if(t.getTaskdatetime().toLocalDate().toString().equals(LocalDateTime.now().toLocalDate().toString())) {
+					%>
+					<td>Today</td>
+					<%
+						}else{
+					%>
+					<td><%=t.getTaskdatetime().toLocalDate().toString()%></td>
+					<%
+						}
+					%>
+					<td><a
+						href="Controller?handler=edit-link&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-edit icon"></span></a></td>
+					<td><a
+						href="Controller?handler=remove&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-trash icon"></span></a></td>
+					<td><a
+						href="Controller?handler=done&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-ok icon"></span></a></td>
+				</tr>
+				<%
+					}}}
+				%>
+			</table>
+
 			<%
-				}}}
-			%>
-		</table>
-
-		<!-- page end--> </section> </section>
+				}
+			%> <!-- page end--> </section> </section>
 
 
 
+		</div>
 	</div>
 	<script type="text/javascript">
 		function datepick() {
@@ -266,7 +426,6 @@
 				format : "yyyy-mm-dd",
 				autoclose : true
 			});
-
 		}
 	</script>
 	<script src="js/jquery-2.1.4.js"></script>

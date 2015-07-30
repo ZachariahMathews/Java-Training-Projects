@@ -20,15 +20,15 @@ public class RemoveHandler {
 
 	public List<Task> remove(List<Task> tasks) {
 
-		int taskid = 0, dispid = 0;
-		for (Task task : tasks) {
+		int taskid = Integer.parseInt(request.getParameter("taskid")), dispid = 0;
+		/*for (Task task : tasks) {
 
 			++dispid;
-			if (dispid == Integer.parseInt(request.getParameter("index"))) {
+			if (dispid == Integer.parseInt(request.getParameter("taskid"))) {
 
 				taskid = task.getTaskid();
 			}
-		}
+		}*/
 		ListIterator<Task> iterator = tasks.listIterator();
 		while (iterator.hasNext()) {
 			if (iterator.next().getTaskid() == taskid) {

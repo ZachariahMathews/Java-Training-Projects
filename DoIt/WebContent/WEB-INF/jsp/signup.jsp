@@ -10,7 +10,7 @@
 </head>
 <body class="login-body" style="background-image: url('img/bg.jpg');">
 	<div id="login-container">
-		<form class="form-signin" action="Controller">
+		<form class="form-signin" action="Controller" method="post">
 			<h2 class="form-signin-heading">Signup</h2>
 			<div class="login-wrap">
 				<table>
