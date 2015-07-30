@@ -12,10 +12,10 @@
 <link rel="stylesheet" href="css/bootstrap-datepicker3.min.css" />
 <link rel="stylesheet" href="css/bootstrap.css" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/bootstrap-select.min.css" />
+<link rel="stylesheet" href="css/bootstrap-select.css" />
 <link rel="stylesheet" href="css/bootstrap-timepicker.min.css" />
 </head>
-<body onload="datepick()" style="background-image: url('img/bg.jpg');">
+<body onload="datepick()" style="background: #e3e3e3;">
 	<div id="container">
 		<header class="header fixed-top clearfix"> <!--logo start-->
 		<div class="brand">
@@ -132,16 +132,16 @@
 		<section id="main-content"> <section class="wrapper">
 		<!-- page start--> <%
  	if(request.getParameter("handler").equals("edit-link")){
- 		
- 	List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
- 	Task task=null;
- 	for(Task temp:tasks) {
- 		if(temp.getDisplayid()==Integer.parseInt(request.getParameter("index"))){
- 	
- 	task=temp;
- 	break;
- 		}
- 	}
+     		
+     	List<Task> tasks=(List<Task>) getServletContext().getAttribute("tasks");
+     	Task task=null;
+     	for(Task temp:tasks) {
+     		if(temp.getTaskid()==Integer.parseInt(request.getParameter("taskid"))){
+     	
+     	task=temp;
+     	break;
+     		}
+     	}
  %>
 		<form action="Controller">
 			<input type="hidden" name="taskid" value="<%=task.getTaskid()%>">
@@ -157,9 +157,7 @@
 				value="<%=task.getTaskdatetime().toLocalDate()%>"> <br>
 			Time:
 			<div class="input-append bootstrap-timepicker">
-				<input id="timepicker1" type="text" class="input-small"
-					value="<%=task.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%>">
-				<span class="add-on"><i class="icon-time"></i></span>
+				<input id="timepicker1" type="text" class="input-small"	value="<%=task.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%>">
 			</div>
 			<input type="hidden" name="handler" value="edit-page"> <input
 				type="submit" value="Edit"> <br>
@@ -168,61 +166,88 @@
 			}
 			else{
 		%>
-		<form action="Controller" class="form-add">
-			<div class="add-wrap">
-				Enter the task : <input type="text" name="task" class="form-control">
-				<br> Priority : <select name="priority" class="selectpicker">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select> <br> Date: <input type="text" id="datepicker1" name="taskdate"
-					class="form-control"> <br> Time:
-				<div class="input-append bootstrap-timepicker">
-					<input id="timepicker1" type="text"
-						class="input-small form-control"> <span class="add-on"><i
-						class="icon-time"></i></span>
+		<!-- <div class="col-lg-12"> -->
+			<form action="Controller" class="form-add">
+				<div class="add-wrap">
+				<div class="row">
+				<div class="col-lg-6 col-md-12 col-sm-12">
+					<label class=>Enter the task</label><input type="text" name="task"	class="form-control task-input"> 
 				</div>
-				<input type="hidden" name="handler" value="list-add"> <input
-					type="submit" value="Add"> <br>
-			</div>
-		</form>
+				<div class="col-lg-1 col-md-3 col-sm-2">
+					<label>Priority</label>
+					<select	name="priority" class="form-control select" id="priority-picker">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select> 
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-5">
+					<label>Date</label><input type="text" id="datepicker1" name="taskdate" class="form-control"> 
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-5">
+					<label> Time</label>
+					<div class="input-append bootstrap-timepicker">
+						<input id="timepicker1" type="text"
+							class="input-small form-control"> <span class="add-on"><i
+							class="icon-time"></i></span>
+					</div>
+				</div>
+				<div class="col-lg-1 col-md-3 col-sm-12">
+					<input type="hidden" name="handler" value="list-add"> 
+					<input type="submit" value="Add" class="btn btn-add btn-lg">
+				</div>
+				</div>
+				</div>
+			</form>
+		<!-- </div> -->
 		<%
 			}
 		%> <br>
 		<hr>
 		<h1><%=request.getSession().getAttribute("userid")%></h1>
 		<hr>
+
 		<table width="100%" class="table">
-			<tr>
+			<!-- <tr class="table-row">
 				<td>Priority</td>
 				<td>Task Description</td>
 				<td>Task Time</td>
 				<td>Task Date</td>
-				<td></td>
-			</tr>
+				<td>Edit</td>
+				<td>Remove</td>
+				<td>Mark Done</td>
+			</tr> -->
 			<%
 				int i = 0;
-					//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
-					for (Task t : (List<Task>) getServletContext()
-							.getAttribute("tasks")) {
+				//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
+				for (Task t : (List<Task>) getServletContext()
+						.getAttribute("tasks")) {
 
-						t.setDisplayid(++i);
-						if (t.getUserid().equals(
-								request.getSession().getAttribute("userid"))) {
-							//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
-							if (t.getDone() == 'n'
-									&& t.getTaskdatetime().isAfter(LocalDateTime.now())) {
+					t.setDisplayid(++i);
+					if (t.getUserid().equals(
+							request.getSession().getAttribute("userid"))) {
+						//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
+						if (t.getDone() == 'n'
+								&& t.getTaskdatetime().isAfter(LocalDateTime.now())) {
 			%>
-			<tr>
+			<tr class="table-row">
 				<td><%=t.getPriority()%></td>
 				<td><%=t.getTask()%></td>
 				<td><%=t.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%></td>
+				<%if(t.getTaskdatetime().toLocalDate().toString().equals(LocalDateTime.now().toLocalDate().toString())) {
+				%>
+				<td>Today</td>
+				<%}else{ %>
 				<td><%=t.getTaskdatetime().toLocalDate().toString()%></td>
-				<td><a href="Controller?handler=edit-link&index=<%=i%>">Edit</a></td>
-				<td><a href="Controller?handler=remove&index=<%=i%>">Remove</a></td>
-				<td><a href="Controller?handler=done&index=<%=i%>">Done</a></td>
+				<%} %>
+				<td><a href="Controller?handler=edit-link&taskid=<%=t.getTaskid()%>"><span
+						class="glyphicon glyphicon-edit icon"></span></a></td>
+				<td><a href="Controller?handler=remove&taskid=<%=t.getTaskid()%>"><span
+						class="glyphicon glyphicon-trash icon"></span></a></td>
+				<td><a href="Controller?handler=done&taskid=<%=t.getTaskid()%>"><span
+						class="glyphicon glyphicon-ok icon"></span></a></td>
 			</tr>
 			<%
 				}}}
@@ -236,8 +261,6 @@
 	</div>
 	<script type="text/javascript">
 		function datepick() {
-
-			$('.selectpicker').selectpicker();
 			$('#timepicker1').timepicker();
 			$('#datepicker1').datepicker({
 				format : "yyyy-mm-dd",
