@@ -17,21 +17,16 @@
 </head>
 <body onload="datepick()" style="background: #e3e3e3;">
 	<div id="container">
-		<header class="header fixed-top clearfix"> <!--logo start-->
+		<header class="header fixed-top clearfix">
 		<div class="brand">
 
-			<!-- <a href="index.html" class="logo">  -->
 			<!-- <img src="images/logo.png" alt=""> -->
 			<p class="logo">DoIt!</p>
-			<!-- </a> -->
 
 		</div>
-		<!--logo end-->
 		<div class="top-nav clearfix">
-			<!--search & user info start-->
 			<ul class="nav pull-right top-menu">
 
-				<!-- user login dropdown start-->
 				<li class="dropdown"><a data-toggle="dropdown"
 					class="dropdown-toggle" href="#"> <img alt="" src="img/bg.jpg">
 						<span class="username"> <%=request.getSession().getAttribute("userid")%></span>
@@ -41,13 +36,13 @@
 						<li><a href="Controller?handler=logout"><span
 								class="glyphicon glyphicon-off"></span>&nbsp; Log Out</a></li>
 					</ul></li>
-				<!-- user login dropdown end -->
-
 			</ul>
-			<!--search & user info end-->
 		</div>
 		</header>
 		<div id="wrapper">
+		
+		<!-- sidebar-start -->
+		
 			<div id="sidebar-wrapper">
 				<ul class="sidebar-nav">
 
@@ -65,22 +60,29 @@
 					</li>
 				</ul>
 			</div>
+			
+			<!-- sidebar-end -->
+			
+			<!-- main-content-start -->
+			
+			<section id="main-content"> <section class="wrapper">
+			
+			<!-- scriptlet to check if we need to render edit form -->
+			<%
+				if (request.getParameter("handler").equals("edit-link")) {
 
-			<section id="main-content"> <section class="wrapper"> <%
- 	if (request.getParameter("handler").equals("edit-link")) {
+			 		List<Task> tasks = (List<Task>) getServletContext()
+			 				.getAttribute("tasks");
+			 		Task task = null;
+			 		for (Task temp : tasks) {
+			 			if (temp.getTaskid() == Integer.parseInt(request
+			 					.getParameter("taskid"))) {
 
- 		List<Task> tasks = (List<Task>) getServletContext()
- 				.getAttribute("tasks");
- 		Task task = null;
- 		for (Task temp : tasks) {
- 			if (temp.getTaskid() == Integer.parseInt(request
- 					.getParameter("taskid"))) {
-
- 				task = temp;
- 				break;
- 			}
- 		}
- %> <%-- <form action="Controller">
+			 				task = temp;
+			 				break;
+			 			}
+			 		}
+			%> <%-- <form action="Controller">
 			<input type="hidden" name="taskid" value="<%=task.getTaskid()%>">
 			Enter the task : <input type="text" name="task"
 				value="<%=task.getTask()%>"> <br> Priority : <select
@@ -100,7 +102,7 @@
 				type="submit" value="Edit"> <br>
 		</form> --%>
 
-
+			<!-- edit-form -->
 
 			<form action="Controller" class="form-add">
 				<div class="add-wrap">
@@ -123,7 +125,7 @@
 								<option value="personal">Personal</option>
 								<%
 									}
-																												if (task.getCategory().equals("work")) {
+																																																																																		if (task.getCategory().equals("work")) {
 								%>
 								<option value="work" selected="selected">Work</option>
 								<%
@@ -148,7 +150,7 @@
 								<option value="1">1</option>
 								<%
 									}
-										if (task.getPriority() == 2) {
+																																																																																		if (task.getPriority() == 2) {
 								%>
 								<option value="2" selected="selected">2</option>
 								<%
@@ -157,7 +159,7 @@
 								<option value="2">2</option>
 								<%
 									}
-										if (task.getPriority() == 3) {
+																																																																																		if (task.getPriority() == 3) {
 								%>
 								<option value="3" selected="selected">3</option>
 								<%
@@ -166,7 +168,7 @@
 								<option value="3">3</option>
 								<%
 									}
-										if (task.getPriority() == 4) {
+																																																																																		if (task.getPriority() == 4) {
 								%>
 								<option value="4" selected="selected">4</option>
 								<%
@@ -175,7 +177,7 @@
 								<option value="4">4</option>
 								<%
 									}
-										if (task.getPriority() == 5) {
+																																																																																		if (task.getPriority() == 5) {
 								%>
 								<option value="5" selected="selected">5</option>
 								<%
@@ -202,17 +204,21 @@
 							</div>
 						</div>
 						<div class="col-lg-1 col-md-12 col-sm-12">
-						<input type="hidden" name="taskid" value="<%=task.getTaskid()%>">
+							<input type="hidden" name="taskid" value="<%=task.getTaskid()%>">
 							<input type="hidden" name="handler" value="edit-page"> <input
 								type="submit" value="Edit" class="btn btn-add btn-lg">
 						</div>
 					</div>
 				</div>
 			</form>
+			
+			<!-- edit form end -->
+			
 			<%
-				}
-						else{
-			%> 
+				} else {
+			%>
+
+			<!-- add form -->
 
 			<form action="Controller" class="form-add">
 				<div class="add-wrap">
@@ -257,28 +263,36 @@
 					</div>
 				</div>
 			</form>
-			 <%
- 	}
- %> <br>
+			
+			<!-- add form end -->
+			
+			<%
+				}
+			%> <br>
 			<%
 				if(request.getSession().getAttribute("curr-page")==null){
 			%>
-			<h1>Today</h1>
+			
+			<!-- personal table start -->
+			
+			<h1>Personal</h1>
 
 
 			<table width="100%" class="table">
 				<%
 					int i = 0;
-											//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
-											for (Task t : (List<Task>) getServletContext()
-													.getAttribute("tasks")) {
 
-												t.setDisplayid(++i);
-												if (t.getUserid().equals(
-														request.getSession().getAttribute("userid"))) {
-													//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
-													if (t.getDone() == 'n'
-															&& t.getTaskdatetime().isAfter(LocalDateTime.now())) {
+								for (Task t : (List<Task>) getServletContext().getAttribute(
+										"tasks")) {
+
+									t.setDisplayid(++i);
+									if (t.getUserid().equals(
+											request.getSession().getAttribute("userid"))) {
+
+										if (t.getDone() == 'n'
+												&& t.getTaskdatetime().isAfter(
+														LocalDateTime.now())
+												&& t.getCategory().equals("personal")) {
 				%>
 				<tr class="table-row">
 					<td><%=t.getPriority()%></td>
@@ -309,11 +323,71 @@
 					}}}
 				%>
 			</table>
-
+			
+			<!-- personal table end -->
+			
 			<%
-				}
-							else if(request.getSession().getAttribute("curr-page").equals("archive")){
+				} else if (request.getSession().getAttribute("curr-page")
+							.equals("work")) {
 			%>
+			
+			<!-- work table start -->
+			
+			<h1>Work</h1>
+
+
+			<table width="100%" class="table">
+				<%
+					int i = 0;
+								for (Task t : (List<Task>) getServletContext().getAttribute(
+										"tasks")) {
+
+									t.setDisplayid(++i);
+									if (t.getUserid().equals(
+											request.getSession().getAttribute("userid"))) {
+										if (t.getDone() == 'n'
+												&& t.getTaskdatetime().isAfter(
+														LocalDateTime.now())
+												&& t.getCategory().equals("work")) {
+				%>
+				<tr class="table-row">
+					<td><%=t.getPriority()%></td>
+					<td><%=t.getTask()%></td>
+					<td><%=t.getTaskdatetime().toLocalTime().format(DateTimeFormatter.ofPattern("hh:mm a"))%></td>
+					<%
+						if(t.getTaskdatetime().toLocalDate().toString().equals(LocalDateTime.now().toLocalDate().toString())) {
+					%>
+					<td>Today</td>
+					<%
+						}else{
+					%>
+					<td><%=t.getTaskdatetime().toLocalDate().toString()%></td>
+					<%
+						}
+					%>
+					<td><a
+						href="Controller?handler=edit-link&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-edit icon"></span></a></td>
+					<td><a
+						href="Controller?handler=remove&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-trash icon"></span></a></td>
+					<td><a
+						href="Controller?handler=done&taskid=<%=t.getTaskid()%>"><span
+							class="glyphicon glyphicon-ok icon"></span></a></td>
+				</tr>
+				<%
+					}}}
+				%>
+			</table>
+			
+			<!-- work table end -->
+			
+			<%
+				} else if (request.getSession().getAttribute("curr-page")
+							.equals("archive")) {
+			%>
+
+			<!-- archive table start -->
 
 			<h1>Archive</h1>
 
@@ -321,15 +395,13 @@
 			<table width="100%" class="table">
 				<%
 					int i = 0;
-											//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
-											for (Task t : (List<Task>) getServletContext()
-													.getAttribute("tasks")) {
+						for (Task t : (List<Task>) getServletContext().getAttribute(
+								"tasks")) {
 
-												t.setDisplayid(++i);
-												if (t.getUserid().equals(
-														request.getSession().getAttribute("userid"))) {
-													//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
-													if (t.getDone() == 'y') {
+							t.setDisplayid(++i);
+							if (t.getUserid().equals(
+									request.getSession().getAttribute("userid"))) {
+								if (t.getDone() == 'y') {
 				%>
 				<tr class="table-row">
 					<td><%=t.getPriority()%></td>
@@ -352,34 +424,28 @@
 				%>
 			</table>
 
+			<!-- archive table end -->
+
 			<%
-				}
-							else{
+				} else {
 			%>
+			
+			<!-- pending table start -->
+			
 			<h1>Pending</h1>
 
 
 			<table width="100%" class="table">
-				<!-- <tr class="table-row">
-				<td>Priority</td>
-				<td>Task Description</td>
-				<td>Task Time</td>
-				<td>Task Date</td>
-				<td>Edit</td>
-				<td>Remove</td>
-				<td>Mark Done</td>
-			</tr> -->
 				<%
 					int i = 0;
-											//System.out.println("After-jsp: "+((List<Task>)getServletContext().getAttribute("tasks")).size());
-											for (Task t : (List<Task>) getServletContext()
-													.getAttribute("tasks")) {
+						for (Task t : (List<Task>) getServletContext().getAttribute(
+								"tasks")) {
 
-												if (t.getUserid().equals(
-														request.getSession().getAttribute("userid"))) {
-													//System.out.println(t.getTask()+" "+t.getUserid()+" "+t.getDone());
-													if (t.getDone() == 'n'
-															&& t.getTaskdatetime().isBefore(LocalDateTime.now())) {
+							if (t.getUserid().equals(
+									request.getSession().getAttribute("userid"))) {
+								if (t.getDone() == 'n'
+										&& t.getTaskdatetime().isBefore(
+												LocalDateTime.now())) {
 				%>
 				<tr class="table-row">
 					<td><%=t.getPriority()%></td>
@@ -411,9 +477,13 @@
 				%>
 			</table>
 
+			<!-- pending table end -->
+			
 			<%
 				}
-			%> <!-- page end--> </section> </section>
+			%> </section> </section>
+			
+			<!-- main-content-end -->
 
 
 

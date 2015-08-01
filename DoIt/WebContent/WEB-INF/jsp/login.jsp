@@ -10,7 +10,9 @@
 </head>
 <body class="login-body" style="background-image: url('img/bg.jpg');">
 	<div id="login-container">
-		<!-- <h1>Login Form</h1> -->
+		
+		<!-- login form start-->
+
 		<form class="form-signin" action="Controller" method="post">
 			<h2 class="form-signin-heading">DoIt!</h2>
 			<div class="login-wrap">
@@ -37,7 +39,8 @@
 					if (request.getAttribute("login") == null) {
 					} else if (!(Boolean) request.getAttribute("login")) {
 				%>
-				<div class="alert alert-danger invalid " role="alert">Login failed. Invalid UserID or Password.</div>
+				<div class="alert alert-danger invalid " role="alert">Login
+					failed. Invalid UserID or Password.</div>
 				<%
 					}
 				%>
@@ -47,6 +50,8 @@
 				</div>
 			</div>
 		</form>
+
+		<!-- login form end-->
 
 	</div>
 	<script src="js/jquery.js"></script>

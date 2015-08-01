@@ -10,6 +10,9 @@
 </head>
 <body class="login-body" style="background-image: url('img/bg.jpg');">
 	<div id="login-container">
+
+		<!-- signup form start-->
+
 		<form class="form-signin" action="Controller" method="post">
 			<h2 class="form-signin-heading">Signup</h2>
 			<div class="login-wrap">
@@ -36,12 +39,16 @@
 					if (request.getAttribute("signup") == null) {
 					} else if (!(Boolean) request.getAttribute("signup")) {
 				%>
-				<div class="alert alert-danger invalid " role="alert">Signup failed. UserID already exists.</div>
+				<div class="alert alert-danger invalid " role="alert">Signup
+					failed. UserID already exists.</div>
 				<%
 					}
 				%>
 			</div>
 		</form>
+
+		<!-- signup form end-->
+
 	</div>
 </body>
 </html>
